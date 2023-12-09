@@ -1,0 +1,154 @@
+
+
+import React, { useState } from 'react';
+import { Dimensions, ImageBackground, KeyboardAvoidingView, SafeAreaView, ScrollView,Text, View } from 'react-native';
+import { COLORS, FONT, images } from '../../constants';
+import { RFPercentage } from 'react-native-responsive-fontsize';
+import INPUTtext_password from '../../Components/INPUTtext_password';
+import INputbutton from '../../Components/INputbutton';
+import StartButton from '../../Components/StartButton';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+const h = Dimensions.get("screen").height
+const w = Dimensions.get("screen").width
+
+const Login = () => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+    const [touched, setTouched] = useState({});
+
+    const handleChange = (field, text) => {
+        setValue(text);
+
+        const fieldErrors = validateField(field, text);
+        setErrors((prevErrors) => ({ ...prevErrors, [field]: fieldErrors }));
+        setTouched((prevTouched) => ({ ...prevTouched, [field]: true }));
+
+    };
+
+    const handleChange2 = (field, text) => {
+        setValue2(text);
+
+        const fieldErrors = validateField2(field, text);
+        setErrors((prevErrors) => ({ ...prevErrors, [field]: fieldErrors }));
+        setTouched((prevTouched) => ({ ...prevTouched, [field]: true }));
+    };
+
+    const validateField = (field, value) => {
+        switch (field) {
+            case 'Email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(value) ? [] : ['Invalid email address'];
+
+            default:
+                return [];
+        }
+    };
+
+    const validateField2 = (field, value) => {
+        switch (field) {
+            case 'password':
+                return value.length >= 6 ? [] : ['Password must be at least 6 characters'];
+
+            default:
+                return [];
+        }
+    };
+
+
+    const handleButtonPress = () => {
+        const emailErrors = validateField('Email', value);
+        const passwordErrors = validateField2('password', value2);
+
+        setErrors({ Email: emailErrors, password: passwordErrors });
+        setTouched({ Email: true, password: true });
+
+        if (emailErrors.length === 0 && passwordErrors.length === 0) {
+            console.log('Validation successful!');
+        } else {
+            console.log('Validation failed!');
+        }
+    };
+    return (
+        <>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={{ flex: 1 }}
+            >
+                <SafeAreaProvider style={{ alignItems: "center", backgroundColor: COLORS.backgroundColorIceORbuttomcolor, flex: 1 }}>
+
+                    <ImageBackground resizeMode='cover' source={images.ice4}
+                        style={{ width: w * 1, height: h * 1 }}>
+                        <ScrollView showsHorizontalScrollIndicator={false}
+                            showsVerticalScrollIndicator={false} >
+
+                            <View style={{ marginLeft: RFPercentage(5), marginVertical: RFPercentage(5) }}>
+                                <Text style={{
+                                    color: COLORS.TextColor,
+                                    fontSize: RFPercentage(5),
+                                    marginBottom: RFPercentage(1.2),
+                                    fontFamily: FONT.Quicksand_SemiBold
+                                }}>Log in</Text>
+                                <Text style={{
+                                    color: COLORS.TextColor,
+                                    fontFamily: FONT.Quicksand_Medium,
+                                    fontSize: RFPercentage(2.4)
+                                }}>Enter your email and password</Text>
+                            </View>
+
+                            <View style={{
+                                alignSelf: "center", justifyContent: "center",
+                                alignItems: "center", marginVertical: RFPercentage(10)
+                            }} >
+                                <INputbutton
+                                    label="Email"
+                                    value={value}
+                                    onChangeText={(text) => handleChange('Email', text)}
+                                    errors={errors.Email}
+                                    touched={touched.Email}
+                                />
+                                <View style={{ marginTop: RFPercentage(5) }} >
+                                    <INPUTtext_password
+                                        label="Password"
+                                        value={value2}
+                                        onChangeText={(text) => handleChange2('password', text)}
+                                        errors={errors.password}
+                                        touched={touched.password}
+                                        password={password}
+                                        setPassword={setPassword}
+                                        visible={passwordVisible}
+                                        setVisible={setPasswordVisible}
+                                    />
+                                </View>
+
+
+
+                                <View style={{ marginTop: RFPercentage(2) }}>
+                                    <StartButton button_name={"Submit"} Confirm_press={handleButtonPress} />
+
+                                    <Text style={{
+                                        textAlign: "center",
+                                        marginTop: RFPercentage(2),
+                                        fontSize: RFPercentage(2.3),
+                                        color: COLORS.TextColor,
+                                        fontFamily: FONT.Quicksand_Medium,
+                                    }}>Don't have an account? <Text onPress={() => { }}>Signup</Text></Text>
+                                </View>
+
+
+                            </View>
+                        </ScrollView>
+
+                    </ImageBackground>
+
+                </SafeAreaProvider>
+            </KeyboardAvoidingView>
+
+        </>
+    );
+};
+
+export default Login;
