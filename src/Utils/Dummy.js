@@ -81,6 +81,7 @@ const cart_products = [
         product_price_with_sale: 18.22,
         product_count: 0,
         product_delivery_status: "Free Delivery",
+        price_delivery : 0
     }
     ,
     {
@@ -91,6 +92,8 @@ const cart_products = [
         product_price_with_sale: 10,
         product_count: 0,
         product_delivery_status: "Free Delivery",
+        price_delivery : 0
+
     }
     , {
         product_id: 3,
@@ -100,6 +103,8 @@ const cart_products = [
         product_price_with_sale: 14,
         product_count: 0,
         product_delivery_status: "Free Delivery",
+        price_delivery : 0
+
     }
     , {
         product_id: 4,
@@ -109,6 +114,8 @@ const cart_products = [
         product_price_with_sale: 25,
         product_count: 0,
         product_delivery_status: "Free Delivery",
+        price_delivery : 0
+
     }
     // , {
     //     product_id: 5,

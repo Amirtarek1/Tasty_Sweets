@@ -123,6 +123,8 @@ const Cart = () => {
                         <View>
                             <View style={{ flexDirection: "row" }}>
                                 <TouchableOpacity style={{
+                                    maxHeight:RFPercentage(4.5),
+                                    maxWidth:RFPercentage(4),
                                     paddingHorizontal: RFPercentage(1),
                                     backgroundColor: COLORS.backgroundColorIceORbuttomcolor,
                                     borderRadius: RFPercentage(0.7),

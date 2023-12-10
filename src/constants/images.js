@@ -4,7 +4,6 @@ const another = require("../assets/Images/another.png")
 const Nolocation = require("../assets/Images/NOlocation.png")
 const USER_PROFILE = require("../assets/Images/USER_PROFILE.png")
 const TryMain =  require("../assets/Images/TryMain.png")
-const real_user = require("../assets/Images/real_user.png")
 const ice1 = require("../assets/Images/ice1.png")
 const ice2 = require("../assets/Images/ice2.png")
 const ice3 = require("../assets/Images/ice3.png")
@@ -27,7 +26,6 @@ export default {
     Nolocation,
     USER_PROFILE,
     TryMain,
-    real_user,
     ice1,
     ice2,
     ice3,
