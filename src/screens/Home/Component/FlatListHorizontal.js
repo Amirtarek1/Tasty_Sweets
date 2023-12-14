@@ -23,10 +23,10 @@ const FlatListHorizontal = ({ data }) => {
                             style={{
                                 padding:RFPercentage(2),
                                 alignSelf: "center", 
-                                width: hp(46),
-                                height: hp(24), 
-                                marginRight: RFPercentage(2),
-                                marginVertical: RFPercentage(2),
+                                width: hp(42),
+                                height: hp(25), 
+                                marginRight: RFPercentage(1.5),
+                                marginVertical: RFPercentage(1),
                                 justifyContent: "center",
                                 borderRadius: hp(1.2),
                                 overflow: 'hidden',
@@ -37,17 +37,17 @@ const FlatListHorizontal = ({ data }) => {
                             }}>
                                 <Text style={{
                                     fontFamily: FONT.Quicksand_Bold,
-                                    fontSize: RFPercentage(2.9), marginBottom: RFPercentage(0.2), color: COLORS.Top_Flavour_Name
+                                    fontSize: RFPercentage(2.5), marginBottom: RFPercentage(0.2), color: COLORS.Top_Flavour_Name
                                 }}
                                 >{item.name}</Text>
                                 <Text style={{
                                     fontFamily: FONT.Quicksand_Medium,
-                                    fontSize: RFPercentage(2.2), marginBottom: RFPercentage(0.2), color: COLORS.Top_Flavour_Name
+                                    fontSize: RFPercentage(2), marginBottom: RFPercentage(0.2), color: COLORS.Top_Flavour_Name
                                 }}
                                 >{item.delivery_type}</Text>
                                 <Text style={{
                                     fontFamily: FONT.Quicksand_Bold,
-                                    fontSize: RFPercentage(2.7), 
+                                    fontSize: RFPercentage(2.2), 
                                     color: COLORS.TrybackgroundColorIce2
                                 }}
                                 >${item.price}</Text>

@@ -108,230 +108,252 @@ const Cart = () => {
                     flex: 1,
                 }}>
 
-                    <View style={{
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginHorizontal: RFPercentage(1.5),
-                        marginVertical: RFPercentage(1),
-                    }}>
-                        <Text style={{
-                            fontSize: RFPercentage(4),
-                            fontFamily: FONT.Quicksand_Bold,
-                            color: COLORS.TextColorName,
-                        }}>My Cart</Text>
-                        <View>
-                            <View style={{ flexDirection: "row" }}>
-                                <TouchableOpacity style={{
-                                    maxHeight:RFPercentage(4.5),
-                                    maxWidth:RFPercentage(4),
+                    <View
+                        style={{
+                            marginHorizontal: RFPercentage(1.5),
+                            marginTop: RFPercentage(0.5),
+                            padding: RFPercentage(0.5),
+                            backgroundColor: COLORS.white,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            marginVertical: RFPercentage(1),
+                            marginBottom: RFPercentage(2)
+                        }}>
+                        <Text
+                            style={{
+                                fontFamily: FONT.Quicksand_Bold,
+                                fontSize: RFPercentage(3),
+                                color: COLORS.TextColorName,
+                            }}>
+                            My Cart
+                        </Text>
+
+                        <View style={{ flexDirection: 'row', alignItems: "center" }}>
+                            <TouchableOpacity
+                                style={{
                                     paddingHorizontal: RFPercentage(1),
-                                    backgroundColor: COLORS.backgroundColorIceORbuttomcolor,
+                                    backgroundColor:
+                                        COLORS.backgroundColorIceORbuttomcolor,
                                     borderRadius: RFPercentage(0.7),
-                                    marginRight: RFPercentage(1)
+                                    marginRight: RFPercentage(1),
+                                    maxHeight: RFPercentage(4.5),
+                                    maxWidth: RFPercentage(4),
                                 }}>
-                                    <Text style={{
+                                <Text
+                                    style={{
                                         fontSize: RFPercentage(3),
                                         color: COLORS.white,
-                                    }}>+</Text>
-                                </TouchableOpacity>
-                                <Text style={{
-                                    justifyContent: "center",
-                                    textAlign: "center",
-                                    color: "#e7c2c1",
-                                    fontFamily: FONT.Quicksand_SemiBold,
-                                    fontSize: RFPercentage(2.5),
-                                }}>Add items
+                                    }}>
+                                    +
                                 </Text>
-                            </View>
+                            </TouchableOpacity>
+
+                            <Text
+                                style={{
+                                    justifyContent: 'center',
+                                    textAlign: 'center',
+                                    color: '#e7c2c1',
+                                    fontFamily: FONT.Quicksand_SemiBold,
+                                    fontSize: RFPercentage(2.1),
+                                }}>
+                                Add items
+                            </Text>
                         </View>
                     </View>
 
-
-
                     <FlatList
                         data={products}
-                        style={{
-                            marginTop: RFPercentage(1),
-                            paddingTop: RFPercentage(1)
-                        }}
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item, index }) => (
                             <>
-
-                                <View style={{
-                                    alignSelf: "center",
-                                    width: w * 0.95,
-                                    padding: RFPercentage(1),
-                                    marginBottom: RFPercentage(2),
-                                    shadowColor: COLORS.black,
-                                    backgroundColor: COLORS.white,
-                                    elevation: 3,
-                                    shadowOffset: { width: 10, height: 14 },
-                                    shadowOpacity: .5,
-                                    borderRadius: RFPercentage(2),
-                                }}>
-                                    <View style={{ flexDirection: "row" }}>
+                                <View
+                                    style={{
+                                        alignSelf: 'center',
+                                        width: w * 0.93,
+                                        padding: RFPercentage(1),
+                                        marginBottom: RFPercentage(1),
+                                        shadowColor: COLORS.black,
+                                        marginTop: RFPercentage(1),
+                                        backgroundColor: COLORS.white,
+                                        elevation: 3,
+                                        shadowOffset: { width: 10, height: 14 },
+                                        shadowOpacity: 0.5,
+                                        borderRadius: RFPercentage(2),
+                                    }}>
+                                    <View style={{ flexDirection: 'row' }}>
                                         <Image
                                             source={item.product_image}
                                             style={{
                                                 borderRadius: RFPercentage(1.5),
                                                 width: w * 0.3,
                                                 height: h * 0.15,
-
                                             }}
                                         />
                                         <View style={{ marginLeft: RFPercentage(1) }}>
-                                            <View style={{
-                                                marginVertical: RFPercentage(0.5),
-                                                width: w * 0.6,
-                                                maxWidth: w * 0.6,
-                                                flexDirection: "row",
-                                                // backgroundColor: "#d0d",
-                                                justifyContent: "space-between",
-                                                alignItems:"center", 
-                                            }}>
-                                                <Text numberOfLines={2} style={{
-                                                    maxWidth: w * 0.5,
-                                                    fontSize: RFPercentage(2.2),
-                                                    fontFamily: FONT.Quicksand_Bold,
-                                                    color: COLORS.TextColorName
+                                            <View
+                                                style={{
+                                                    marginVertical: RFPercentage(0.5),
+                                                    maxWidth: w * 0.55,
+                                                    flexDirection: 'row',
+                                                    justifyContent: 'space-between',
+                                                    alignItems: 'center',
                                                 }}>
+                                                <Text
+                                                    numberOfLines={2}
+                                                    style={{
+                                                        maxWidth: w * 0.35,
+                                                        fontSize: RFPercentage(2),
+                                                        fontFamily: FONT.Quicksand_Bold,
+                                                        color: COLORS.TextColorName,
+                                                    }}>
                                                     {item.product_name}
                                                 </Text>
 
                                                 <TouchableOpacity
                                                     onPress={() => deleteProduct(item.product_id)}
-
                                                     style={{
-                                                        alignItems:"center", justifyContent:"center",
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
                                                         backgroundColor: COLORS.white,
                                                         borderRadius: RFPercentage(5),
                                                         padding: RFPercentage(0.2),
-                                                        elevation: 4,marginRight:RFPercentage(0.5),
+                                                        elevation: 4,
+                                                        marginRight: RFPercentage(0.5),
                                                         shadowOffset: { width: 14, height: 14 },
-                                                        shadowOpacity: .5,
+                                                        shadowOpacity: 0.5,
                                                     }}>
-                                                    <DeleteICon width={hp(4.5)} height={hp(4.5)} />
+                                                    <DeleteICon
+                                                        width={hp(4.5)}
+                                                        height={hp(4.5)}
+                                                    />
                                                 </TouchableOpacity>
                                             </View>
-                                            <View style={{
-                                                marginVertical: RFPercentage(0.5),
-                                                width: w * 0.6,
-                                                maxWidth: w * 0.6,
-                                                flexDirection: "row",
-                                                // backgroundColor: "#0dd",
-                                            }}>
-                                                <Text style={{
-                                                    fontSize: RFPercentage(2.25),
-                                                    fontFamily: FONT.Quicksand_Bold,
-                                                    color: COLORS.TextColorName
+                                            <View
+                                                style={{
+                                                    marginVertical: RFPercentage(0.5),
+                                                    width: w * 0.6,
+                                                    maxWidth: w * 0.6,
+                                                    flexDirection: 'row',
+                                                    // backgroundColor: "#0dd",
                                                 }}>
+                                                <Text
+                                                    style={{
+                                                        fontSize: RFPercentage(2.1),
+                                                        fontFamily: FONT.Quicksand_Bold,
+                                                        color: COLORS.TextColorName,
+                                                    }}>
                                                     ${item.product_price_with_sale}
                                                 </Text>
-                                                <Text style={{
-                                                    fontSize: RFPercentage(2.25),
-                                                    textDecorationLine: "line-through",
-                                                    fontFamily: FONT.Quicksand_SemiBold,
-                                                    color: COLORS.text_color,
-                                                    marginLeft: RFPercentage(2)
-
-                                                }}>
+                                                <Text
+                                                    style={{
+                                                        fontSize: RFPercentage(2.1),
+                                                        textDecorationLine: 'line-through',
+                                                        fontFamily: FONT.Quicksand_SemiBold,
+                                                        color: COLORS.text_color,
+                                                        marginLeft: RFPercentage(2),
+                                                    }}>
                                                     ${item.product_price_without_sale}
                                                 </Text>
                                             </View>
-                                            <View style={{
-                                                marginVertical: RFPercentage(0.5),
-                                                width: w * 0.6,
-                                                maxWidth: w * 0.6,
-                                                flexDirection: "row",
-                                                // backgroundColor: "#0d0",
-                                                // justifyContent: "space-between"
-                                            }}>
-                                                <View style={{
-                                                    backgroundColor: COLORS.gray_ofwhite,
-                                                    borderRadius: RFPercentage(5),
-                                                    // padding: RFPercentage(0.2), 
-                                                    elevation: 2,
-                                                    shadowOffset: { width: 14, height: 14 },
-                                                    shadowOpacity: .5,
-                                                    marginRight:RFPercentage(1)
+                                            <View
+                                                style={{
+                                                    marginVertical: RFPercentage(0.5),
+                                                    width: w * 0.6,
+                                                    maxWidth: w * 0.6,
+                                                    flexDirection: 'row',
                                                 }}>
-                                                    <FreeDelivery width={hp(3.5)} height={hp(3.5)}  />
+                                                <View
+                                                    style={{
+                                                        backgroundColor: COLORS.gray_ofwhite,
+                                                        borderRadius: RFPercentage(5),
+                                                        // padding: RFPercentage(0.2),
+                                                        elevation: 2,
+                                                        shadowOffset: { width: 14, height: 14 },
+                                                        shadowOpacity: 0.5,
+                                                        marginRight: RFPercentage(1),
+                                                    }}>
+                                                    <FreeDelivery
+                                                        width={hp(3.5)}
+                                                        height={hp(3.5)}
+                                                    />
                                                 </View>
-                                                <Text style={{
-                                                    fontSize: RFPercentage(2.25),
-                                                    justifyContent:"center",
-                                                    // backgroundColor:"#00d",
-                                                    fontFamily: FONT.Quicksand_SemiBold,
-                                                    color: COLORS.text_color
-                                                }}>
+                                                <Text
+                                                    style={{
+                                                        fontSize: RFPercentage(1.9),
+                                                        justifyContent: 'center',
+                                                        // backgroundColor:"#00d",
+                                                        fontFamily: FONT.Quicksand_SemiBold,
+                                                        color: COLORS.text_color,
+                                                    }}>
                                                     {item.product_delivery_status}
                                                 </Text>
                                             </View>
-
-
                                         </View>
                                     </View>
 
-                                    <View style={{
-                                        flexDirection: "row",
-                                        alignSelf: "flex-end",
-                                        backgroundColor: "#f2f0ef",
-                                        borderRadius: RFPercentage(1),
-                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: 'row',
+                                            alignSelf: 'flex-end',
+                                            backgroundColor: '#f2f0ef',
+                                            borderRadius: RFPercentage(1),
+                                        }}>
                                         <TouchableOpacity
                                             onPress={() => decrement(item.product_id)}
-                                            // onPress={decrement(item.product_id)}
                                             style={{
-                                                justifyContent: "center",
+                                                justifyContent: 'center',
                                             }}>
-                                            <Text style={{
-                                                borderRadius: RFPercentage(1),
-                                                paddingVertical: RFPercentage(0.5),
-                                                paddingHorizontal: RFPercentage(2),
-                                                fontSize: RFPercentage(3),
-                                                fontFamily: FONT.Quicksand_Bold,
-                                                color: COLORS.white,
-                                                backgroundColor: COLORS.minusbotooncolor
-                                            }}>-</Text>
+                                            <Text
+                                                style={{
+                                                    borderRadius: RFPercentage(1),
+                                                    paddingVertical: RFPercentage(0.5),
+                                                    paddingHorizontal: RFPercentage(2),
+                                                    fontSize: RFPercentage(2.5),
+                                                    fontFamily: FONT.Quicksand_Bold,
+                                                    color: COLORS.white,
+                                                    backgroundColor: COLORS.minusbotooncolor,
+                                                }}>
+                                                -
+                                            </Text>
                                         </TouchableOpacity>
 
-                                        <Text numberOfLines={1} style={{
-                                            justifyContent: "center", maxWidth: w * 0.14,
-                                            paddingHorizontal: RFPercentage(1),
-                                            fontSize: RFPercentage(2.5),
-                                            alignSelf: "center",
-                                            fontFamily: FONT.Quicksand_Bold,
-                                            color: COLORS.Top_Flavour_Name
-                                        }}>{item.product_count}</Text>
+                                        <Text
+                                            numberOfLines={1}
+                                            style={{
+                                                justifyContent: 'center',
+                                                maxWidth: w * 0.14,
+                                                paddingHorizontal: RFPercentage(1),
+                                                fontSize: RFPercentage(2.4),
+                                                alignSelf: 'center',
+                                                fontFamily: FONT.Quicksand_Bold,
+                                                color: COLORS.Top_Flavour_Name,
+                                            }}>
+                                            {item.product_count}
+                                        </Text>
 
                                         <TouchableOpacity
                                             onPress={() => increment(item.product_id)}
                                             style={{
-                                                justifyContent: "center",
+                                                justifyContent: 'center',
                                             }}>
-                                            <Text style={{
-                                                borderRadius: RFPercentage(1),
-                                                paddingVertical: RFPercentage(0.5),
-                                                paddingHorizontal: RFPercentage(2),
-                                                fontSize: RFPercentage(3),
-                                                fontFamily: FONT.Quicksand_Bold,
-                                                color: COLORS.white,
-                                                backgroundColor: COLORS.plusbottonColor
-                                            }}>+</Text>
+                                            <Text
+                                                style={{
+                                                    borderRadius: RFPercentage(1),
+                                                    paddingVertical: RFPercentage(0.5),
+                                                    paddingHorizontal: RFPercentage(2),
+                                                    fontSize: RFPercentage(2.4),
+                                                    fontFamily: FONT.Quicksand_Bold,
+                                                    color: COLORS.white,
+                                                    backgroundColor: COLORS.plusbottonColor,
+                                                }}>
+                                                +
+                                            </Text>
                                         </TouchableOpacity>
-
-
                                     </View>
-
                                 </View>
-
-
                             </>
                         )}
                     />
-
 
 
 

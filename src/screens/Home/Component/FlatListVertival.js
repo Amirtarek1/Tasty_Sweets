@@ -12,7 +12,7 @@ const FlatListVertival = ({ data }) => {
         <FlatList
             data={data}
             numColumns={2}
-            contentContainerStyle={{ marginBottom: RFPercentage(20) }}
+            // contentContainerStyle={{ marginBottom: RFPercentage(20) }}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
                 <>
@@ -29,20 +29,20 @@ const FlatListVertival = ({ data }) => {
                             <Image resizeMode='cover' source={item.image}
                                 style={{
                                     borderRadius:RFPercentage(3),
-                                    width: hp(24),
-                                    height: hp(40)
+                                    width: w *0.425,
+                                    height: w*0.6
                                 }} />
                         </TouchableOpacity>
 
                         <View style={{ margin: RFPercentage(1) }}>
                             <Text numberOfLines={1}  style={{
-                                fontSize: RFPercentage(2.5),
+                                fontSize: RFPercentage(2),
                                 maxWidth :hp(20),
                                 fontFamily: FONT.Quicksand_SemiBold,
                                 color: COLORS.TextColorName
                             }} >{item.name}</Text>
                             <Text numberOfLines={1}  style={{
-                                fontSize: RFPercentage(2.7),
+                                fontSize: RFPercentage(2.2),
                                 maxWidth :hp(10),
                                 fontFamily: FONT.Quicksand_Medium,
                                 color: COLORS.Text_on_button

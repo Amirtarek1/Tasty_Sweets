@@ -17,7 +17,8 @@ const App = () => {
       {/* <NavigationContainer>
       <AnimTab2/>
       </NavigationContainer> */}
-      <CheckoutPage />
+      {/* <CheckoutPage /> */}
+      <Home_Page/>
     </>
   );
 };

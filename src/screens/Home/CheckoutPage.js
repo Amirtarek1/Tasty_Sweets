@@ -186,7 +186,7 @@ const CheckoutPage = () => {
                           textAlign: 'center',
                           flex: 0.9,
                           marginVertical: RFPercentage(1),
-                          fontSize: RFPercentage(4),
+                          fontSize: RFPercentage(3.5),
                           fontFamily: FONT.Quicksand_Bold,
                           color: COLORS.Top_Flavour_Name,
                         }}>
@@ -207,7 +207,7 @@ const CheckoutPage = () => {
                         <Text
                           style={{
                             fontFamily: FONT.Quicksand_SemiBold,
-                            fontSize: RFPercentage(2.4),
+                            fontSize: RFPercentage(2.2),
                             color: COLORS.TextColorName,
                           }}>
                           Keep Social Distancing
@@ -215,7 +215,7 @@ const CheckoutPage = () => {
                         <Text
                           style={{
                             fontFamily: FONT.Quicksand_Medium,
-                            fontSize: RFPercentage(2.2),
+                            fontSize: RFPercentage(1.8),
                             color: COLORS.Top_Flavour_Name,
                           }}>
                           Leave your order on the doorstep
@@ -294,7 +294,7 @@ const CheckoutPage = () => {
                       <Text
                         style={{
                           fontFamily: FONT.Quicksand_Bold,
-                          fontSize: RFPercentage(3.5),
+                          fontSize: RFPercentage(3),
                           color: COLORS.TextColorName,
                         }}>
                         My Cart
@@ -326,7 +326,7 @@ const CheckoutPage = () => {
                             textAlign: 'center',
                             color: '#e7c2c1',
                             fontFamily: FONT.Quicksand_SemiBold,
-                            fontSize: RFPercentage(2.5),
+                            fontSize: RFPercentage(2.1),
                           }}>
                           Add items
                         </Text>
@@ -347,7 +347,8 @@ const CheckoutPage = () => {
                             alignSelf: 'center',
                             width: w * 0.93,
                             padding: RFPercentage(1),
-                            marginBottom: RFPercentage(2),
+                            marginBottom: RFPercentage(1),
+                            marginTop:RFPercentage(1),
                             shadowColor: COLORS.black,
                             backgroundColor: COLORS.white,
                             elevation: 3,
@@ -377,7 +378,7 @@ const CheckoutPage = () => {
                                   numberOfLines={2}
                                   style={{
                                     maxWidth: w * 0.35,
-                                    fontSize: RFPercentage(2.2),
+                                    fontSize: RFPercentage(2),
                                     fontFamily: FONT.Quicksand_Bold,
                                     color: COLORS.TextColorName,
                                   }}>
@@ -413,7 +414,7 @@ const CheckoutPage = () => {
                                 }}>
                                 <Text
                                   style={{
-                                    fontSize: RFPercentage(2.25),
+                                    fontSize: RFPercentage(2.1),
                                     fontFamily: FONT.Quicksand_Bold,
                                     color: COLORS.TextColorName,
                                   }}>
@@ -421,7 +422,7 @@ const CheckoutPage = () => {
                                 </Text>
                                 <Text
                                   style={{
-                                    fontSize: RFPercentage(2.25),
+                                    fontSize: RFPercentage(2.1),
                                     textDecorationLine: 'line-through',
                                     fontFamily: FONT.Quicksand_SemiBold,
                                     color: COLORS.text_color,
@@ -454,7 +455,7 @@ const CheckoutPage = () => {
                                 </View>
                                 <Text
                                   style={{
-                                    fontSize: RFPercentage(2.25),
+                                    fontSize: RFPercentage(1.9),
                                     justifyContent: 'center',
                                     // backgroundColor:"#00d",
                                     fontFamily: FONT.Quicksand_SemiBold,
@@ -483,7 +484,7 @@ const CheckoutPage = () => {
                                   borderRadius: RFPercentage(1),
                                   paddingVertical: RFPercentage(0.5),
                                   paddingHorizontal: RFPercentage(2),
-                                  fontSize: RFPercentage(3),
+                                  fontSize: RFPercentage(2.5),
                                   fontFamily: FONT.Quicksand_Bold,
                                   color: COLORS.white,
                                   backgroundColor: COLORS.minusbotooncolor,
@@ -498,7 +499,7 @@ const CheckoutPage = () => {
                                 justifyContent: 'center',
                                 maxWidth: w * 0.14,
                                 paddingHorizontal: RFPercentage(1),
-                                fontSize: RFPercentage(2.5),
+                                fontSize: RFPercentage(2.4),
                                 alignSelf: 'center',
                                 fontFamily: FONT.Quicksand_Bold,
                                 color: COLORS.Top_Flavour_Name,
@@ -516,7 +517,7 @@ const CheckoutPage = () => {
                                   borderRadius: RFPercentage(1),
                                   paddingVertical: RFPercentage(0.5),
                                   paddingHorizontal: RFPercentage(2),
-                                  fontSize: RFPercentage(3),
+                                  fontSize: RFPercentage(2.4),
                                   fontFamily: FONT.Quicksand_Bold,
                                   color: COLORS.white,
                                   backgroundColor: COLORS.plusbottonColor,
@@ -562,7 +563,7 @@ const CheckoutPage = () => {
             <Text
               style={{
                 fontFamily: FONT.Quicksand_Bold,
-                fontSize: RFPercentage(3.5),
+                fontSize: RFPercentage(3),
                 color: COLORS.TextColorName,
               }}>
               Payment
@@ -572,7 +573,7 @@ const CheckoutPage = () => {
               <Text
                 style={{
                   fontFamily: FONT.Quicksand_SemiBold,
-                  fontSize: RFPercentage(2.2),
+                  fontSize: RFPercentage(2.1),
                   color: COLORS.TextColorName,
                 }}>Items Total price
               </Text>
@@ -580,7 +581,7 @@ const CheckoutPage = () => {
               <Text
                 style={{
                   fontFamily: FONT.Quicksand_SemiBold,
-                  fontSize: RFPercentage(2.2),
+                  fontSize: RFPercentage(2.1),
                   color: COLORS.TextColorName,
                 }}>
                 ${TotalPrice.toFixed(2)}
@@ -592,7 +593,7 @@ const CheckoutPage = () => {
               <Text
                 style={{
                   fontFamily: FONT.Quicksand_SemiBold,
-                  fontSize: RFPercentage(2.2),
+                  fontSize: RFPercentage(2.1),
                   color: COLORS.TextColorName,
                 }}>Delivery fee
               </Text>
@@ -600,7 +601,7 @@ const CheckoutPage = () => {
               <Text
                 style={{
                   fontFamily: FONT.Quicksand_SemiBold,
-                  fontSize: RFPercentage(2.2),
+                  fontSize: RFPercentage(2.1),
                   color: COLORS.TextColorName,
                 }}>
                 ${Totalfee.toFixed(2)}
@@ -617,7 +618,7 @@ const CheckoutPage = () => {
               <Text
                 style={{
                   fontFamily: FONT.Quicksand_SemiBold,
-                  fontSize: RFPercentage(2.2),
+                  fontSize: RFPercentage(2.1),
                   color: COLORS.TextColorName,
                 }}>
                 To pay
@@ -626,7 +627,7 @@ const CheckoutPage = () => {
               <Text
                 style={{
                   fontFamily: FONT.Quicksand_SemiBold,
-                  fontSize: RFPercentage(2.2),
+                  fontSize: RFPercentage(2.1),
                   color: COLORS.TextColorName,
                 }}>
                 ${(Totalfee + TotalPrice).toFixed(2)}
@@ -636,7 +637,7 @@ const CheckoutPage = () => {
             <TouchableOpacity 
             onPress={()=>{}}
             style={{marginVertical:RFPercentage(1.8), 
-              backgroundColor: COLORS.plusbottonColor,width:w*0.9,
+              backgroundColor: COLORS.plusbottonColor,width:w*0.85,
               alignSelf:"center",alignItems:"center",
                borderRadius: RFPercentage(1.5)  }}>
               <Text style={{

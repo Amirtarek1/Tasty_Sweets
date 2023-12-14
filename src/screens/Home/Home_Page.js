@@ -43,7 +43,7 @@ const Home_Page = () => {
                         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: RFPercentage(2), paddingVertical: RFPercentage(2) }}>
                             <View style={{ justifyContent: "center", marginLeft: RFPercentage(2.5) }}>
                                 <Text style={{ fontSize: RFPercentage(3.2), fontFamily: FONT.Quicksand_Bold, color: COLORS.TextColorName }}>Hi Amir</Text>
-                                <Text style={{ fontSize: RFPercentage(2), fontFamily: FONT.Quicksand_Medium, color: COLORS.TextColorName }}>What Flavour are you looking for?</Text>
+                                <Text style={{ fontSize: RFPercentage(1.9), fontFamily: FONT.Quicksand_Regular, color: COLORS.TextColorName }}>What Flavour are you looking for?</Text>
                             </View>
 
                             <View style={{ marginRight: RFPercentage(2.5) }}>
@@ -55,7 +55,7 @@ const Home_Page = () => {
                             <TextInput
                                 style={{
                                     height: hp(7),
-                                    width: w * 0.75,
+                                    width: w * 0.9,
                                     marginHorizontal: RFPercentage(2),
                                     borderRadius: RFPercentage(2),
                                     backgroundColor: COLORS.TrybackgroundColorIce1,
@@ -68,9 +68,9 @@ const Home_Page = () => {
                                 value={searchQuery}
                                 onChangeText={handleSearch}
                             />
-                            <View style={{ backgroundColor: COLORS.TrybackgroundColorIce1, padding: RFPercentage(0.9), borderRadius: RFPercentage(2) }}>
+                            {/* <View style={{ backgroundColor: COLORS.TrybackgroundColorIce1, padding: RFPercentage(0.9), borderRadius: RFPercentage(2) }}>
                                 <Image source={images.USER_PROFILE} style={{ borderRadius: RFPercentage(5), width: w * .11, height: w * .11 }} />
-                            </View>
+                            </View> */}
                         </View>
 
                         <View style={{ marginHorizontal: RFPercentage(0.5), padding: RFPercentage(2) }}>
