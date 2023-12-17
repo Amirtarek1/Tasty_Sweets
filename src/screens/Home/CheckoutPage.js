@@ -22,7 +22,6 @@ import DownArrow from '../../assets/Icons/DownArrow.svg';
 import UpArrow from '../../assets/Icons/UpArrow.svg';
 
 
-// UpArrow.svg
 const CheckoutPage = () => {
   useEffect(() => {
     getsavenote();
@@ -161,8 +160,8 @@ const CheckoutPage = () => {
       <SafeAreaProvider>
         <View style={{ flex: 1, backgroundColor: COLORS.white }}>
           <FlatList
-           showsVerticalScrollIndicator={false}
-           showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
             data={[{ type: 'header' }, { type: 'footer' }, ...products]}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => {
@@ -173,7 +172,7 @@ const CheckoutPage = () => {
                       backgroundColor: COLORS.white,
                       flex: 1,
                       paddingHorizontal: RFPercentage(1.5),
-                      paddingVertical:RFPercentage(1)
+                      paddingVertical: RFPercentage(1)
                     }}>
                     <View
                       style={{
@@ -246,7 +245,7 @@ const CheckoutPage = () => {
                         padding: RFPercentage(0.5),
                       }}>
                       <View>
-                        <Text
+                        {/* <Text
                           style={{
                             fontFamily: FONT.Quicksand_Medium,
                             fontSize: RFPercentage(2.2),
@@ -261,7 +260,7 @@ const CheckoutPage = () => {
                             color: COLORS.TextColorName,
                           }}>
                           Cairo 6 October
-                        </Text>
+                        </Text> */}
 
                         <TextInput
                           style={{
@@ -348,7 +347,7 @@ const CheckoutPage = () => {
                             width: w * 0.93,
                             padding: RFPercentage(1),
                             marginBottom: RFPercentage(1),
-                            marginTop:RFPercentage(1),
+                            marginTop: RFPercentage(1),
                             shadowColor: COLORS.black,
                             backgroundColor: COLORS.white,
                             elevation: 3,
@@ -559,7 +558,7 @@ const CheckoutPage = () => {
               }
             }}
           />
-          <View style={{paddingTop:RFPercentage(1), paddingHorizontal: RFPercentage(2), }}>
+          <View style={{ paddingTop: RFPercentage(1), paddingHorizontal: RFPercentage(2), }}>
             <Text
               style={{
                 fontFamily: FONT.Quicksand_Bold,
@@ -634,15 +633,17 @@ const CheckoutPage = () => {
               </Text>
             </View>
 
-            <TouchableOpacity 
-            onPress={()=>{}}
-            style={{marginVertical:RFPercentage(1.8), 
-              backgroundColor: COLORS.plusbottonColor,width:w*0.85,
-              alignSelf:"center",alignItems:"center",
-               borderRadius: RFPercentage(1.5)  }}>
+            <TouchableOpacity
+              onPress={() => { }}
+              style={{
+                marginVertical: RFPercentage(1.8),
+                backgroundColor: COLORS.plusbottonColor, width: w * 0.85,
+                alignSelf: "center", alignItems: "center",
+                borderRadius: RFPercentage(1.5)
+              }}>
               <Text style={{
                 fontSize: RFPercentage(2.5), fontFamily: FONT.Quicksand_Bold,
-                justifyContent: "center" ,padding:RFPercentage(1.8), textAlign: "center"
+                justifyContent: "center", padding: RFPercentage(1.8), textAlign: "center"
               }}>Continue</Text>
             </TouchableOpacity>
           </View>

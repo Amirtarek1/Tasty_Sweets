@@ -34,7 +34,7 @@ const FlatListVertival = ({ data }) => {
                                 }} />
                         </TouchableOpacity>
 
-                        <View style={{ margin: RFPercentage(1) }}>
+                        <View style={{ margin: RFPercentage(1)  ,  marginLeft:RFPercentage(3)}}>
                             <Text numberOfLines={1}  style={{
                                 fontSize: RFPercentage(2),
                                 maxWidth :hp(20),

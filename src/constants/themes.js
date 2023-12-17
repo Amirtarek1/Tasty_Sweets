@@ -49,7 +49,8 @@ const COLORS = {
     priceindetailspage : "#dd9f97",
     color_addtocartButtom : "#c57e55",
     plusbottonColor:"#e1acab",
-    minusbotooncolor:"#e0dfe1"
+    minusbotooncolor:"#e0dfe1",
+    ColorofCurrentLabel :'#8d9193',
 }
 
 const FONT = {

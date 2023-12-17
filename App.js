@@ -7,6 +7,8 @@ import CheckoutPage from './src/screens/Home/CheckoutPage';
 import {NavigationContainer} from '@react-navigation/native';
 import AnimTab2 from './src/screens/Bottomtabs/AnimTab2';
 import StartScreen from './src/screens/Splash/StartScreen';
+import PayedPage from './src/screens/Home/PayedPage';
+import TRY from './src/screens/Others/TRY';
 
 const App = () => {
   return (
@@ -18,7 +20,8 @@ const App = () => {
       <AnimTab2/>
       </NavigationContainer> */}
       {/* <CheckoutPage /> */}
-      <Home_Page/>
+      <PayedPage/>
+      {/* <TRY/> */}
     </>
   );
 };
