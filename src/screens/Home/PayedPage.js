@@ -6,15 +6,13 @@ import Back_arrow from '../../Components/Back_arrow';
 import { COLORS, FONT, images } from '../../constants';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import StepIndicator from 'react-native-step-indicator';
-import Home_Page from './Home_Page';
-import Cart from './Cart';
-import StartButton from '../../Components/StartButton';
-import { hp, wp } from '../../constants/themes';
-
+import { Sizes, hp, wp } from '../../constants/themes';
+import Arrow from "../../assets/Icons/arrow.svg"
+import Right from "../../assets/Icons/Right.svg"
+import Left from "../../assets/Icons/Left.svg"
 
 const h = Dimensions.get('screen').height;
 const w = Dimensions.get('screen').width;
-
 const PayedPage = () => {
 
 
@@ -26,7 +24,9 @@ const PayedPage = () => {
     const [zipCode, setzipCode] = useState('');
     const [state, setstate] = useState('');
 
-
+    const onPrevStep = () => {
+        setCurrentStep((prevStep) => Math.max(prevStep - 1, 0));
+    };
 
     const steps = [
         { label: <Text style={{ color: currentStep >= 0 ? COLORS.color_addtocartButtom : COLORS.ColorofCurrentLabel }}>Billing</Text> },
@@ -36,7 +36,7 @@ const PayedPage = () => {
 
 
     const onNextStep = () => {
-        if (currentStep === 0 && (!fullname || !Address1 || city || state)) {
+        if (currentStep === 0 && (!fullname || !Address1 || !city || !state)) {
             alert('Please fill in fields');
         } else if (currentStep === 1 && !university) {
             alert('Please fill in the university');
@@ -55,7 +55,7 @@ const PayedPage = () => {
                     flex: 1,
                     padding: RFPercentage(1)
                 }}>
-                    <ScrollView>
+                    <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
 
 
                         <View
@@ -89,44 +89,27 @@ const PayedPage = () => {
                             // <ScrollView>
 
                             <View style={styles.stepContentContainer}>
-                                <ScrollView>
+                                <ScrollView
+
+                                    showsHorizontalScrollIndicator={false}
+                                    showsVerticalScrollIndicator={false}>
                                     <Text style={{
                                         fontSize: RFPercentage(3),
-                                        marginVertical: RFPercentage(2),
+                                        marginVertical: RFPercentage(1.5),
                                         marginTop: RFPercentage(4)
                                     }}>{steps[currentStep].label}</Text>
                                     <TextInput
+                                        style={styles.inputStyle}
 
-                                        style={{
-                                            height: hp(6.5),
-                                            width: w * 0.9,
-                                            marginVertical: RFPercentage(2),
-                                            borderRadius: RFPercentage(0.5),
-                                            backgroundColor: COLORS.TrybackgroundColorIce1,
-                                            paddingHorizontal: 15,
-                                            fontFamily: FONT.Quicksand_Regular,
-                                            fontSize: RFPercentage(2.2),
-                                            color: COLORS.TextColorName,
-                                        }}
                                         placeholder="Full name"
                                         value={fullname}
                                         onChangeText={value => {
                                             setfullname(value);
                                         }}
                                     />
-
                                     <TextInput
-                                        style={{
-                                            height: hp(6.5),
-                                            width: w * 0.9,
-                                            marginVertical: RFPercentage(2),
-                                            borderRadius: RFPercentage(0.5),
-                                            backgroundColor: COLORS.TrybackgroundColorIce1,
-                                            paddingHorizontal: 15,
-                                            fontFamily: FONT.Quicksand_Regular,
-                                            fontSize: RFPercentage(2.2),
-                                            color: COLORS.TextColorName,
-                                        }}
+                                        style={styles.inputStyle}
+
                                         placeholder="First Address"
                                         value={Address1}
                                         onChangeText={value => {
@@ -135,79 +118,38 @@ const PayedPage = () => {
                                     />
 
                                     <TextInput
-                                        style={{
-                                            height: hp(6.5),
-                                            width: w * 0.9,
-                                            marginVertical: RFPercentage(2),
-                                            borderRadius: RFPercentage(0.5),
-                                            backgroundColor: COLORS.TrybackgroundColorIce1,
-                                            paddingHorizontal: 15,
-                                            fontFamily: FONT.Quicksand_Regular,
-                                            fontSize: RFPercentage(2.2),
-                                            color: COLORS.TextColorName,
-                                        }}
+                                        style={styles.inputStyle}
+
                                         placeholder="Second Address"
                                         value={Address2}
                                         onChangeText={value => {
                                             setAddress2(value);
                                         }}
                                     />
-                                    <View style={{
-                                        marginVertical: RFPercentage(2),
-                                        flexDirection: "row",
-                                        justifyContent: "space-between",
-                                        alignItems: "center",
-                                        width: w * 0.9
-                                    }}>
-                                        <TextInput
-                                            style={{
-                                                height: hp(6.5),
-                                                width: w * 0.43,
-                                                borderRadius: RFPercentage(0.5),
-                                                backgroundColor: COLORS.TrybackgroundColorIce1,
-                                                paddingHorizontal: 15,
-                                                fontFamily: FONT.Quicksand_Regular,
-                                                fontSize: RFPercentage(2.2),
-                                                color: COLORS.TextColorName,
-                                            }}
-                                            placeholder="city"
-                                            value={city}
-                                            onChangeText={value => {
-                                                setcity(value);
-                                            }}
-                                        />
 
-                                        <TextInput
-                                            style={{
-                                                height: hp(6.5),
-                                                width: w * 0.43,
-                                                borderRadius: RFPercentage(0.5),
-                                                backgroundColor: COLORS.TrybackgroundColorIce1,
-                                                paddingHorizontal: 15,
-                                                fontFamily: FONT.Quicksand_Regular,
-                                                fontSize: RFPercentage(2.2),
-                                                color: COLORS.TextColorName,
-                                            }}
-                                            placeholder="zipCode"
-                                            value={zipCode}
-                                            onChangeText={value => {
-                                                setzipCode(value);
-                                            }}
-                                        />
 
-                                    </View>
                                     <TextInput
-                                        style={{
-                                            marginTop: RFPercentage(2),
-                                            height: hp(6.5),
-                                            width: w * 0.43,
-                                            borderRadius: RFPercentage(0.5),
-                                            backgroundColor: COLORS.TrybackgroundColorIce1,
-                                            paddingHorizontal: 15,
-                                            fontFamily: FONT.Quicksand_Regular,
-                                            fontSize: RFPercentage(2.1),
-                                            color: COLORS.TextColorName,
+                                        style={styles.inputStyle}
+
+                                        placeholder="city"
+                                        value={city}
+                                        onChangeText={value => {
+                                            setcity(value);
                                         }}
+                                    />
+
+                                    <TextInput
+                                        style={styles.inputStyle}
+
+                                        placeholder="zipCode"
+                                        value={zipCode}
+                                        onChangeText={value => {
+                                            setzipCode(value);
+                                        }}
+                                    />
+
+                                    <TextInput
+                                        style={styles.inputStyle}
                                         placeholder="state"
                                         value={state}
                                         onChangeText={value => {
@@ -216,38 +158,56 @@ const PayedPage = () => {
                                     />
 
 
+
+
+
                                 </ScrollView>
 
                             </View>
 
                         )}
 
-                        {/* {currentStep === 1 && (
+                        {currentStep === 1 && (
                             <View style={styles.stepContentContainer}>
                                 <ScrollView>
-                                    <Text>Name: {name}</Text>
-                                    <Text>Number: {number}</Text>
+                                    {/* <Text>Name: {name}</Text> */}
+                                    {/* <Text>Number: {number}</Text> */}
                                     <TextInput
                                         placeholder="University"
-                                        value={university}
-                                        onChangeText={(text) => setUniversity(text)}
-                                    />
+                                        value={state}
+                                        onChangeText={value => {
+                                            setstate(value);
+                                        }}                                    />
                                     <Text>dsfdghadasddasadsda</Text>
 
                                 </ScrollView>
                             </View>
-                        )} */}
+                        )}
+                        <View style={{ marginTop:RFPercentage(2),flexDirection: "row", justifyContent: "space-around" }}>
+                            <TouchableOpacity
+                                style={styles.nextButton}
+                                onPress={onPrevStep}
+                                disabled={currentStep === 0}
+                            >
+                                <Left height={hp(4)}
+                                    width={hp(4)} />
+                                <Text style={styles.nextButtonText}>Previous</Text>
 
-                        <TouchableOpacity
-                            style={styles.nextButton}
-                            onPress={onNextStep}
-                            disabled={currentStep === steps.length - 1}>
-                            <Text style={styles.nextButtonText}>Next</Text>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
 
+                            <TouchableOpacity
+                                style={styles.nextButton}
+                                onPress={onNextStep}
 
+                                disabled={currentStep === steps.length - 1}
+                            >
+                                <Text style={styles.nextButtonText}>Next</Text>
+                                <Right height={hp(4)}
+                                    width={hp(4)} />
+                            </TouchableOpacity>
+
+                        </View>
                     </ScrollView>
-
                 </View>
             </SafeAreaProvider >
 
@@ -288,39 +248,40 @@ const customStyles = {
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-    },
-    stepLabel: {
-        fontSize: 12,
-        fontWeight: '500',
-        color: '#00d',
+    inputStyle: {
+        marginTop: RFPercentage(1.5),
+        margin: RFPercentage(0.5),
+        width: Sizes.width * 0.9,
+        fontSize: RFPercentage(2.5),
+        fontFamily: FONT.Quicksand_Regular,
+        color: "#635B5B",
+        alignSelf: "center",
+        backgroundColor: COLORS.TrybackgroundColorIce1,
+        borderRadius: RFPercentage(0.5),
+        justifyContent: "center",
+        paddingHorizontal: hp(1)
     },
     stepContentContainer: {
-        // alignItems: 'center',
-        flex: 0.1,
         justifyContent: "space-around",
-        padding: RFPercentage(1.5)
+        padding: RFPercentage(1.5),
+        backgroundColor: COLORS.white
 
     },
-    scrollContainer: {
-        flexGrow: 1,
-        justifyContent: 'space-between',
-    },
-    contentContainer: {
-        marginTop: 20,
-    },
     nextButton: {
-        backgroundColor: '#00bcd4', // Change to your button color
-        padding: 15,
-        borderRadius: 5,
-        alignItems: 'center',
-        marginTop: 20,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: COLORS.color_addtocartButtom,
+        paddingHorizontal: RFPercentage(2),
+        borderRadius: RFPercentage(0.5)
+
     },
     nextButtonText: {
-        color: 'white',
-        fontWeight: 'bold',
+        fontSize: RFPercentage(2.4),
+        fontFamily: FONT.Quicksand_Bold,
+        color: COLORS.black,
+        paddingVertical: RFPercentage(2.1),
+
     },
 
 
