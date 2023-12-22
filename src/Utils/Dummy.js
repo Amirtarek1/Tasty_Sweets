@@ -9,14 +9,14 @@ const Top_Flavours = [
         delivery_type: "Free Delivery"
     },
     {
-        id: 2,
+        id:2,
         name: "Vanilla Flavour",
         image: images.Flavour2,
         price: 20.5,
         delivery_type: "Free Delivery"
     },
     {
-        id: 3,
+        id:3,
         name: "Mango Flavour",
         image: images.Flavour8,
         price: 10.3,

@@ -1,32 +1,46 @@
 
-import React, { useEffect, useState } from 'react';
-import { Dimensions, ImageBackground, StyleSheet, Text, TextInput, ScrollView, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, Text, TextInput, ScrollView, TouchableOpacity, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import Back_arrow from '../../Components/Back_arrow';
-import { COLORS, FONT, images } from '../../constants';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS, FONT } from '../../constants';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import StepIndicator from 'react-native-step-indicator';
-import { Sizes, hp, wp } from '../../constants/themes';
-import Arrow from "../../assets/Icons/arrow.svg"
-import Right from "../../assets/Icons/Right.svg"
-import Left from "../../assets/Icons/Left.svg"
+import { Sizes, hp } from '../../constants/themes';
+import MasterCard from "../../assets/Icons/MasterCard.svg"
+import Visa from "../../assets/Icons/Visa.svg"
+import Lottie from 'lottie-react-native';
+import lotties from '../../constants/lotties';
+import LottieView from 'lottie-react-native';
+
+
 
 const h = Dimensions.get('screen').height;
 const w = Dimensions.get('screen').width;
 const PayedPage = () => {
 
 
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(2);
     const [fullname, setfullname] = useState('');
     const [Address1, setAddress1] = useState('');
     const [Address2, setAddress2] = useState('');
     const [city, setcity] = useState('');
     const [zipCode, setzipCode] = useState('');
     const [state, setstate] = useState('');
+    const [selectedCard, setSelectedCard] = useState(null);
 
-    const onPrevStep = () => {
-        setCurrentStep((prevStep) => Math.max(prevStep - 1, 0));
-    };
+    const [NameonCard, setNameonCard] = useState('');
+    const [CardNumber, setCardNumber] = useState('');
+    const [ExpMonth, setExpMonth] = useState('');
+    const [ExpDate, setExpDate] = useState('');
+    const [CVV, setCVV] = useState('');
+
+
+
+
+    // const onPrevStep = () => {
+    //     setCurrentStep((prevStep) => Math.max(prevStep - 1, 0));
+    // };
 
     const steps = [
         { label: <Text style={{ color: currentStep >= 0 ? COLORS.color_addtocartButtom : COLORS.ColorofCurrentLabel }}>Billing</Text> },
@@ -38,15 +52,49 @@ const PayedPage = () => {
     const onNextStep = () => {
         if (currentStep === 0 && (!fullname || !Address1 || !city || !state)) {
             alert('Please fill in fields');
-        } else if (currentStep === 1 && !university) {
-            alert('Please fill in the university');
+        } else if (currentStep === 1 && (!NameonCard || !CardNumber || !ExpMonth || !ExpDate || !CVV)) {
+            alert('Please fill in all fields');
         } else {
             setCurrentStep((prevStep) => prevStep + 1);
         }
     };
 
+    const handleCardSelection = (cardType) => {
+        console.log('Selected Card:', cardType);
 
+        setSelectedCard(cardType);
+    };
 
+    const renderButtons = () => {
+        if (currentStep === 2) {
+            return (
+                <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+                    <TouchableOpacity style={styles.TrackorderStyle} onPress={() => {}}>
+                        <Text style={styles.TrackOrderandShoppingButtonTextStyle}>Track Order</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.TrackorderStyle} onPress={() => { }}>
+                        <Text style={styles.TrackOrderandShoppingButtonTextStyle}>Continue Shopping</Text>
+                    </TouchableOpacity>
+                </View>
+            );
+        } else {
+            return (
+
+                <View style={{ alignSelf: "center", alignItems: "center" }}>
+                    <TouchableOpacity
+                    
+                        style={styles.nextButton}
+                        onPress={onNextStep}
+                        disabled={currentStep === steps.length - 1}>
+                        <Text style={styles.nextButtonText}>Next</Text>
+                        {/* <Right height={hp(4)} width={hp(4)} /> */}
+
+                    </TouchableOpacity>
+                </View>
+            );
+        }
+    };
     return (
         <>
             <SafeAreaProvider>
@@ -86,7 +134,6 @@ const PayedPage = () => {
                             stepCount={steps.length}
                         />
                         {currentStep === 0 && (
-                            // <ScrollView>
 
                             <View style={styles.stepContentContainer}>
                                 <ScrollView
@@ -96,10 +143,11 @@ const PayedPage = () => {
                                     <Text style={{
                                         fontSize: RFPercentage(3),
                                         marginVertical: RFPercentage(1.5),
-                                        marginTop: RFPercentage(4)
+                                        marginTop: RFPercentage(2)
                                     }}>{steps[currentStep].label}</Text>
                                     <TextInput
                                         style={styles.inputStyle}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
 
                                         placeholder="Full name"
                                         value={fullname}
@@ -109,6 +157,7 @@ const PayedPage = () => {
                                     />
                                     <TextInput
                                         style={styles.inputStyle}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
 
                                         placeholder="First Address"
                                         value={Address1}
@@ -119,6 +168,7 @@ const PayedPage = () => {
 
                                     <TextInput
                                         style={styles.inputStyle}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
 
                                         placeholder="Second Address"
                                         value={Address2}
@@ -130,6 +180,7 @@ const PayedPage = () => {
 
                                     <TextInput
                                         style={styles.inputStyle}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
 
                                         placeholder="city"
                                         value={city}
@@ -140,6 +191,7 @@ const PayedPage = () => {
 
                                     <TextInput
                                         style={styles.inputStyle}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
 
                                         placeholder="zipCode"
                                         value={zipCode}
@@ -150,6 +202,8 @@ const PayedPage = () => {
 
                                     <TextInput
                                         style={styles.inputStyle}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
+
                                         placeholder="state"
                                         value={state}
                                         onChangeText={value => {
@@ -170,43 +224,157 @@ const PayedPage = () => {
                         {currentStep === 1 && (
                             <View style={styles.stepContentContainer}>
                                 <ScrollView>
-                                    {/* <Text>Name: {name}</Text> */}
-                                    {/* <Text>Number: {number}</Text> */}
+                                    <Text style={{
+                                        fontSize: RFPercentage(3),
+                                        marginVertical: RFPercentage(1.5),
+                                        marginTop: RFPercentage(2)
+                                    }}>{steps[currentStep].label}</Text>
+                                    <View style={{ flexDirection: "row", marginBottom: RFPercentage(1) }}>
+                                        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                                            <TouchableOpacity
+                                                onPress={() => handleCardSelection('MasterCard')}
+                                                style={{
+                                                    alignSelf: "center",
+                                                    width: w * 0.65,
+                                                    backgroundColor: selectedCard == "MasterCard" ? "#ffe7e5" : COLORS.white,
+                                                    borderWidth: 3,
+                                                    borderColor: selectedCard == "MasterCard" ? COLORS.TrybackgroundColorIce1 : COLORS.ColorofCurrentLabel,
+                                                    borderRadius: RFPercentage(1),
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    alignContent: "center",
+                                                    height: hp(23),
+                                                    marginRight: RFPercentage(7)
+                                                }}>
+
+                                                <MasterCard height={hp(15)}
+                                                    width={hp(20)} />
+
+                                                <Text style={{
+                                                    marginTop: RFPercentage(-2.5),
+                                                    fontSize: RFPercentage(2.7),
+                                                    color: COLORS.ColorofCurrentLabel,
+                                                    fontFamily: FONT.Quicksand_Medium
+                                                }}>MasterCard</Text>
+                                            </TouchableOpacity>
+
+                                            <TouchableOpacity
+                                                onPress={() => handleCardSelection('Visa')}
+
+                                                style={{
+                                                    borderColor: selectedCard == "Visa" ? COLORS.TrybackgroundColorIce1 : COLORS.ColorofCurrentLabel,
+                                                    alignSelf: "center",
+                                                    width: w * 0.65,
+                                                    backgroundColor: selectedCard == "Visa" ? "#ffe7e5" : COLORS.white,
+                                                    borderWidth: 3,
+                                                    borderRadius: RFPercentage(1),
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    alignContent: "center",
+                                                    height: hp(23),
+                                                }}>
+                                                <Visa height={hp(15)}
+                                                    width={hp(20)} />
+                                                <Text style={{
+                                                    marginTop: RFPercentage(-2.5),
+                                                    fontSize: RFPercentage(2.7),
+                                                    color: COLORS.ColorofCurrentLabel,
+                                                    fontFamily: FONT.Quicksand_Medium
+                                                }}>Visa</Text>
+                                            </TouchableOpacity>
+                                        </ScrollView>
+                                    </View>
+
+
                                     <TextInput
-                                        placeholder="University"
-                                        value={state}
+                                        style={styles.inputStyle}
+                                        placeholder="Name on Card"
+                                        value={NameonCard}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
                                         onChangeText={value => {
-                                            setstate(value);
-                                        }}                                    />
-                                    <Text>dsfdghadasddasadsda</Text>
+                                            setNameonCard(value);
+                                        }}
+                                    />
+                                    <TextInput
+                                        style={styles.inputStyle}
+                                        placeholder="Card Number"
+                                        value={CardNumber}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
+
+                                        onChangeText={value => {
+                                            setCardNumber(value);
+                                        }}
+                                    />
+                                    <TextInput
+                                        style={styles.inputStyle}
+                                        placeholder="Exp Month"
+                                        value={ExpMonth}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
+
+                                        onChangeText={value => {
+                                            setExpMonth(value);
+                                        }}
+                                    />
+                                    <TextInput
+                                        style={styles.inputStyle}
+                                        placeholder="Exp Date"
+                                        value={ExpDate}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
+
+                                        onChangeText={value => {
+                                            setExpDate(value);
+                                        }}
+                                    />
+                                    <TextInput
+                                        style={styles.inputStyle}
+                                        placeholder="CVV"
+                                        value={CVV}
+                                        placeholderTextColor={COLORS.ColorofCurrentLabel}
+
+                                        onChangeText={value => {
+                                            setCVV(value);
+                                        }}
+                                    />
+
 
                                 </ScrollView>
                             </View>
                         )}
-                        <View style={{ marginTop:RFPercentage(2),flexDirection: "row", justifyContent: "space-around" }}>
-                            <TouchableOpacity
-                                style={styles.nextButton}
-                                onPress={onPrevStep}
-                                disabled={currentStep === 0}
-                            >
-                                <Left height={hp(4)}
-                                    width={hp(4)} />
-                                <Text style={styles.nextButtonText}>Previous</Text>
 
-                            </TouchableOpacity>
+                        {currentStep === 2 && (
+                            <View style={{
+                                justifyContent: "center",
+                                alignItems: "center", height: h * 0.5, backgroundColor: COLORS.white
+                            }}>
 
-                            <TouchableOpacity
-                                style={styles.nextButton}
-                                onPress={onNextStep}
+                                <Lottie
+                                    // colorFilters={"#00d","#0dd"}
+                                    style={{
+                                        width: hp(15), height: hp(15),
+                                        alignSelf: "center"
+                                    }}
+                                    source={lotties.Confirmation} autoPlay loop />
+                                <Text style={{
+                                    fontFamily: FONT.Quicksand_Bold,
+                                    color: COLORS.black,
+                                    fontSize: RFPercentage(3),
+                                    marginVertical: RFPercentage(2)
+                                }}>Payment completed</Text>
+                                <Text style={{
+                                    fontFamily: FONT.Quicksand_Bold,
+                                    color: COLORS.ColorofCurrentLabel,
+                                    fontSize: RFPercentage(2.5),
+                                    textAlign: "center"
+                                }}>Order Code is <Text style={{ color: COLORS.black }}>#246 </Text>Please Check The Delivery Status at <Text style={{ color: COLORS.black }}>Order Track </Text>Page</Text>
 
-                                disabled={currentStep === steps.length - 1}
-                            >
-                                <Text style={styles.nextButtonText}>Next</Text>
-                                <Right height={hp(4)}
-                                    width={hp(4)} />
-                            </TouchableOpacity>
+                            </View>
+                        )}
 
-                        </View>
+
+
+                        {renderButtons()}
+
+
                     </ScrollView>
                 </View>
             </SafeAreaProvider >
@@ -255,35 +423,52 @@ const styles = StyleSheet.create({
         fontSize: RFPercentage(2.5),
         fontFamily: FONT.Quicksand_Regular,
         color: "#635B5B",
+        // color:"#000",
         alignSelf: "center",
         backgroundColor: COLORS.TrybackgroundColorIce1,
-        borderRadius: RFPercentage(0.5),
+        borderRadius: RFPercentage(1),
         justifyContent: "center",
         paddingHorizontal: hp(1)
+
     },
     stepContentContainer: {
         justifyContent: "space-around",
         padding: RFPercentage(1.5),
-        backgroundColor: COLORS.white
-
+        backgroundColor: COLORS.white,
+        marginBottom: RFPercentage(2)
     },
     nextButton: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: COLORS.color_addtocartButtom,
-        paddingHorizontal: RFPercentage(2),
-        borderRadius: RFPercentage(0.5)
+        width: w * 0.9,
+        backgroundColor: COLORS.TrybackgroundColorIce1,
+        borderRadius: RFPercentage(1),
+        padding: RFPercentage(2),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
 
     },
     nextButtonText: {
+        textAlign: 'center',
         fontSize: RFPercentage(2.4),
         fontFamily: FONT.Quicksand_Bold,
-        color: COLORS.black,
-        paddingVertical: RFPercentage(2.1),
+        color: COLORS.white,
+    },
+    TrackOrderandShoppingButtonTextStyle: {
+        textAlign: 'center',
+        fontSize: RFPercentage(2.2),
+        fontFamily: FONT.Quicksand_Bold,
+        color: COLORS.white,
+    },
+    TrackorderStyle: {
+        width: w * 0.43,
+        backgroundColor: COLORS.TrybackgroundColorIce1,
+        borderRadius: RFPercentage(1),
+        padding: RFPercentage(2),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
 
     },
-
 
 });
 
