@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Dimensions, StyleSheet, Text, TextInput, ScrollView, TouchableOpacity, View } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import Back_arrow from '../../Components/Back_arrow';
 import { COLORS, FONT } from '../../constants';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -11,7 +11,7 @@ import MasterCard from "../../assets/Icons/MasterCard.svg"
 import Visa from "../../assets/Icons/Visa.svg"
 import Lottie from 'lottie-react-native';
 import lotties from '../../constants/lotties';
-import LottieView from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -19,8 +19,9 @@ const h = Dimensions.get('screen').height;
 const w = Dimensions.get('screen').width;
 const PayedPage = () => {
 
+    const navigation = useNavigation();
 
-    const [currentStep, setCurrentStep] = useState(2);
+    const [currentStep, setCurrentStep] = useState(0);
     const [fullname, setfullname] = useState('');
     const [Address1, setAddress1] = useState('');
     const [Address2, setAddress2] = useState('');
@@ -37,10 +38,6 @@ const PayedPage = () => {
 
 
 
-
-    // const onPrevStep = () => {
-    //     setCurrentStep((prevStep) => Math.max(prevStep - 1, 0));
-    // };
 
     const steps = [
         { label: <Text style={{ color: currentStep >= 0 ? COLORS.color_addtocartButtom : COLORS.ColorofCurrentLabel }}>Billing</Text> },
@@ -59,6 +56,14 @@ const PayedPage = () => {
         }
     };
 
+    const handleBack = () => {
+        if (currentStep === 0) {
+            navigation.navigate('CheckoutPage');
+        } else if (currentStep === 1) {
+            setCurrentStep(0);
+        }
+    };
+
     const handleCardSelection = (cardType) => {
         console.log('Selected Card:', cardType);
 
@@ -69,11 +74,15 @@ const PayedPage = () => {
         if (currentStep === 2) {
             return (
                 <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-                    <TouchableOpacity style={styles.TrackorderStyle} onPress={() => {}}>
+                    <TouchableOpacity style={styles.TrackorderStyle}
+                        onPress={() => navigation.navigate('TrackingPage')}>
                         <Text style={styles.TrackOrderandShoppingButtonTextStyle}>Track Order</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.TrackorderStyle} onPress={() => { }}>
+                    <TouchableOpacity
+                        style={[styles.TrackorderStyle, { marginLeft: RFPercentage(1.5) }]}
+                        onPress={() => navigation.navigate('AnimTab2', { screen: 'Home' })}
+                    >
                         <Text style={styles.TrackOrderandShoppingButtonTextStyle}>Continue Shopping</Text>
                     </TouchableOpacity>
                 </View>
@@ -83,25 +92,26 @@ const PayedPage = () => {
 
                 <View style={{ alignSelf: "center", alignItems: "center" }}>
                     <TouchableOpacity
-                    
+
                         style={styles.nextButton}
                         onPress={onNextStep}
                         disabled={currentStep === steps.length - 1}>
-                        <Text style={styles.nextButtonText}>Next</Text>
-                        {/* <Right height={hp(4)} width={hp(4)} /> */}
+                        <Text style={styles.nextButtonText}>Continue</Text>
 
                     </TouchableOpacity>
                 </View>
             );
         }
     };
+
+
     return (
         <>
             <SafeAreaProvider>
                 <View style={{
                     backgroundColor: COLORS.white,
                     flex: 1,
-                    padding: RFPercentage(1)
+                    padding: RFPercentage(2)
                 }}>
                     <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
 
@@ -112,7 +122,11 @@ const PayedPage = () => {
                                 padding: RFPercentage(0.5),
                                 marginBottom: RFPercentage(4)
                             }}>
-                            <Back_arrow onPress={() => { }} />
+                            {currentStep !== 2 && (
+                                <Back_arrow onPress={handleBack} />
+                            )}
+
+                            {/* <Back_arrow onPress={() => { }} /> */}
                             <Text
                                 style={{
                                     textAlign: 'center',
@@ -143,7 +157,9 @@ const PayedPage = () => {
                                     <Text style={{
                                         fontSize: RFPercentage(3),
                                         marginVertical: RFPercentage(1.5),
-                                        marginTop: RFPercentage(2)
+                                        marginTop: RFPercentage(2),
+                                        fontFamily: FONT.Quicksand_Bold,
+                                        padding: RFPercentage(1),
                                     }}>{steps[currentStep].label}</Text>
                                     <TextInput
                                         style={styles.inputStyle}
@@ -348,7 +364,6 @@ const PayedPage = () => {
                             }}>
 
                                 <Lottie
-                                    // colorFilters={"#00d","#0dd"}
                                     style={{
                                         width: hp(15), height: hp(15),
                                         alignSelf: "center"
@@ -383,42 +398,44 @@ const PayedPage = () => {
     )
 }
 
+
+
 const customStyles = {
-    stepIndicatorSize: 25,
-    currentStepIndicatorSize: 30,
-    separatorStrokeWidth: 2,
-    currentStepStrokeWidth: 3,
-    stepStrokeWidth: 3,
+    stepIndicatorSize: RFValue(25),
+    currentStepIndicatorSize: RFValue(30),
+    separatorStrokeWidth: RFValue(2),
+    currentStepStrokeWidth: RFValue(3),
+    stepStrokeWidth: RFValue(3),
 
-    stepStrokeFinishedColor: COLORS.TrybackgroundColorIce1, // Change to your completed color
-    separatorFinishedColor: COLORS.TrybackgroundColorIce1, // Change to your completed color
-    stepIndicatorFinishedColor: COLORS.TrybackgroundColorIce1, // Change to your completed color
+    stepStrokeFinishedColor: COLORS.TrybackgroundColorIce1,
+    separatorFinishedColor: COLORS.TrybackgroundColorIce1,
+    stepIndicatorFinishedColor: COLORS.TrybackgroundColorIce1,
 
-    stepStrokeUnFinishedColor: COLORS.ColorofCurrentLabel, // Change to your inactive color
-    separatorUnFinishedColor: COLORS.ColorofCurrentLabel, // Change to your inactive color
-    stepIndicatorUnFinishedColor: COLORS.ColorofCurrentLabel, // Change to your inactive color
+    stepStrokeUnFinishedColor: COLORS.ColorofCurrentLabel,
+    separatorUnFinishedColor: COLORS.ColorofCurrentLabel,
+    stepIndicatorUnFinishedColor: COLORS.ColorofCurrentLabel,
 
+    stepIndicatorCurrentColor: COLORS.TrybackgroundColorIce1,
+    stepStrokeCurrentColor: COLORS.TrybackgroundColorIce1,
 
-    stepIndicatorCurrentColor: COLORS.TrybackgroundColorIce1, // Change to your active color
-    stepStrokeCurrentColor: COLORS.TrybackgroundColorIce1, // Change to your active color
+    stepIndicatorLabelFontSize: RFValue(13),
+    currentStepIndicatorLabelFontSize: RFValue(13),
 
-
-
-
-    stepIndicatorLabelFontSize: 13,// number inside circle complete
-    currentStepIndicatorLabelFontSize: 13,// number inside current circle complete
+    stepIndicatorLabelCurrentColor: COLORS.TrybackgroundColorIce1,
+    stepIndicatorLabelFinishedColor: COLORS.TrybackgroundColorIce1,
+    stepIndicatorLabelUnFinishedColor: COLORS.ColorofCurrentLabel,
 
     stepIndicatorLabelCurrentColor: "#000",// color number inside current circle complete
     stepIndicatorLabelFinishedColor: "#000",
     stepIndicatorLabelUnFinishedColor: "#000",
-
 };
+
 
 
 const styles = StyleSheet.create({
     inputStyle: {
         marginTop: RFPercentage(1.5),
-        margin: RFPercentage(0.5),
+        margin: RFPercentage(1),
         width: Sizes.width * 0.9,
         fontSize: RFPercentage(2.5),
         fontFamily: FONT.Quicksand_Regular,
@@ -426,41 +443,39 @@ const styles = StyleSheet.create({
         // color:"#000",
         alignSelf: "center",
         backgroundColor: COLORS.TrybackgroundColorIce1,
-        borderRadius: RFPercentage(1),
+        borderRadius: RFPercentage(1.2),
         justifyContent: "center",
-        paddingHorizontal: hp(1)
+        paddingHorizontal: hp(1.5)
 
     },
     stepContentContainer: {
         justifyContent: "space-around",
-        padding: RFPercentage(1.5),
+        // padding: RFPercentage(1),
         backgroundColor: COLORS.white,
         marginBottom: RFPercentage(2)
     },
     nextButton: {
-        width: w * 0.9,
-        backgroundColor: COLORS.TrybackgroundColorIce1,
-        borderRadius: RFPercentage(1),
-        padding: RFPercentage(2),
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        marginVertical: RFPercentage(1.8),
+        backgroundColor: COLORS.plusbottonColor,
+        width: w * 0.85,
+        alignSelf: "center", alignItems: "center",
+        borderRadius: RFPercentage(1.5)
 
     },
     nextButtonText: {
+        color: COLORS.white,
+        fontSize: RFPercentage(2.5), fontFamily: FONT.Quicksand_Bold,
+        justifyContent: "center", padding: RFPercentage(1.8), textAlign: "center"
+    },
+    TrackOrderandShoppingButtonTextStyle: {
         textAlign: 'center',
         fontSize: RFPercentage(2.4),
         fontFamily: FONT.Quicksand_Bold,
         color: COLORS.white,
-    },
-    TrackOrderandShoppingButtonTextStyle: {
-        textAlign: 'center',
-        fontSize: RFPercentage(2.2),
-        fontFamily: FONT.Quicksand_Bold,
-        color: COLORS.white,
+        width: w * 0.45,
     },
     TrackorderStyle: {
-        width: w * 0.43,
+        width: w * 0.45,
         backgroundColor: COLORS.TrybackgroundColorIce1,
         borderRadius: RFPercentage(1),
         padding: RFPercentage(2),

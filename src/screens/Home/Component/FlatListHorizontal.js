@@ -29,7 +29,7 @@ const FlatListHorizontal = ({ data }) => {
             // console.log(activeSlide ," every case");
             setActiveSlide((prevSlide) => prevSlide + 1); // Increment activeSlide
           }
-        }, 2800);
+        }, 3500);
       
         // Cleanup the interval on component unmount
         return () => clearInterval(intervalId);

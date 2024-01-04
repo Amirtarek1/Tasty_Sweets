@@ -8,8 +8,12 @@ import Styles from './Styles';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Dimensions } from "react-native"
 import { COLORS, FONT } from '../../constants';
-import CheckoutPage from '../Home/CheckoutPage';
 import Home_Page from '../Home/Home_Page';
+import TRY from '../Others/TRY';
+import Cart from '../Home/Cart';
+import StartScreen from '../Splash/StartScreen';
+import { hp } from '../../constants/themes';
+import ProfileDetails from '../Profile/ProfileDetails';
 
 
 const h = Dimensions.get("screen").height
@@ -17,9 +21,9 @@ const w = Dimensions.get("screen").width
 
 const TabArr = [
   { route: 'Home', label: 'Home', type: Icons.Feather, icon: 'home', component: Home_Page },
-  { route: 'كوبونات', label: 'كوبونات', type: Icons.Foundation, icon: 'dollar-bill', component: Home_Page },
-  { route: 'طلباتي', label: 'طلباتي', type: Icons.FontAwesome5, icon: 'shopping-bag', component: Home_Page },
-  { route: 'الملف الشخصي', label: 'الملف الشخصي', type: Icons.FontAwesome, icon: 'user-circle-o', component: Home_Page },
+  // { route: 'Discounts', label: 'Discounts', type: Icons.Foundation, icon: 'dollar-bill', component: StartScreen },
+  { route: 'Cart', label: 'Cart', type: Icons.FontAwesome5, icon: 'shopping-bag', component: Cart },
+  { route: 'Profile', label: 'Profile', type: Icons.FontAwesome, icon: 'user-circle-o', component: ProfileDetails },
 ];
 
 const Tab = createBottomTabNavigator();
@@ -62,7 +66,7 @@ const TabButton = (props) => {
           <Animatable.View
             ref={circleRef}
             style={styles.circle} />
-          <Icon type={item.type} name={item.icon} size={22} color={focused ? Colors.white : COLORS.white} />
+          <Icon type={item.type} name={item.icon} size={hp(2.8)} color={focused ? Colors.white : COLORS.white} />
         </View>
         <Animatable.Text
           ref={textRef}
@@ -83,7 +87,7 @@ function AnimTab2() {
 
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1 }}
+      style={{ flex: 1 , }}
     >
       <Tab.Navigator
 
@@ -118,16 +122,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabBar: {
-    height: h * 0.068,
+    height: w * 0.15,
     flexDirection: "row",
     justifyContent: "space-around",
     alignSelf: "center",
+    backgroundColor:COLORS.white,
   },
   btn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    borderWidth: 3,
+    width:w* 0.11,
+    height: w* 0.11,
+    borderRadius: RFPercentage(10),
+    borderWidth: RFPercentage(0.5),
     borderColor: COLORS.plusbottonColor,
     backgroundColor: COLORS.plusbottonColor,
     justifyContent: 'center',
@@ -138,10 +143,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: COLORS.plusbottonColor,
-    borderRadius: 25,
+    borderRadius: RFPercentage(10),
+
   },
   text: {
-    fontSize: RFPercentage(1.6),
+    
+    fontSize: RFPercentage(1.4),
     fontFamily: FONT.Quicksand_Bold,
     textAlign: 'center',
     color: COLORS.plusbottonColor,

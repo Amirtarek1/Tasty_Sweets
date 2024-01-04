@@ -1,21 +1,17 @@
-import React from 'react';
 import { StyleSheet } from "react-native";
-import Colors from './Colors';
 import { COLORS } from '../../constants';
-import { RFPercentage } from 'react-native-responsive-fontsize';
 const Styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: COLORS.white,
-        // borderRadius:RFPercentage(5)
     },
     rowView: {
+        
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: "#00d",
     },
     separator: {
-        
         height: 0.3,
         width: '100%',
         backgroundColor: "#00d",

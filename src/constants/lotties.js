@@ -5,9 +5,8 @@ const Reoil = require("../assets/lotties/Reoil.json")
 const Splash_1 = require("../assets/lotties/Splash_2.json")
 const recyclingcenter = require("../assets/lotties/recyclingcenter.json")
 const bottlepowerrecycling = require("../assets/lotties/bottlepowerrecycling.json")
-const Confirmation = require("../assets/lotties/Confirmation.json")
-const Confirmation1 = require("../assets/lotties/Confirmation1.json")
-const Confirmation2 = require("../assets/lotties/Confirmation2.json")
+const Confirmation = require("../assets/lotties/CONFIRMATION.json")
+
 
 
 export default {
@@ -18,6 +17,5 @@ Splash_1,
 bottlepowerrecycling,
 recyclingcenter,
 Confirmation,
-Confirmation1,
-Confirmation2
+
 }

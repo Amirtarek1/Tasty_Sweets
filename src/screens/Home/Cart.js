@@ -8,6 +8,8 @@ import { cart_products } from '../../Utils/Dummy';
 import DeleteICon from "../../assets/Icons/Delete2.svg"
 import { hp } from '../../constants/themes';
 import FreeDelivery from "../../assets/Icons/FreeDelivery.svg"
+import Back_arrow from '../../Components/Back_arrow';
+import { useNavigation } from '@react-navigation/native';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -16,6 +18,7 @@ const w = Dimensions.get("screen").width
 
 const Cart = () => {
 
+    const navigation = useNavigation();
 
 
     const [count, setCount] = useState(cart_products.reduce((sum, product) => sum + product.product_count, 0));
@@ -117,19 +120,25 @@ const Cart = () => {
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                             marginVertical: RFPercentage(1),
-                            marginBottom: RFPercentage(2)
                         }}>
-                        <Text
+                        {/* <View style={{ backgroundColor:"#00d" }}> */}
+                            {/* <Back_arrow onPress={() => navigation.navigate("AnimTab2", { screen: 'Home' })} /> */}
+                            <Text
                             style={{
+                                marginLeft:RFPercentage(1),
                                 fontFamily: FONT.Quicksand_Bold,
-                                fontSize: RFPercentage(3),
+                                fontSize: RFPercentage(3.2),
                                 color: COLORS.TextColorName,
                             }}>
                             My Cart
                         </Text>
+                        {/* </View> */}
+                        
 
-                        <View style={{ flexDirection: 'row', alignItems: "center" }}>
-                            <TouchableOpacity
+                        <TouchableOpacity 
+                        onPress={()=>navigation.navigate("AnimTab2", { screen: 'Home' })}
+                        style={{ flexDirection: 'row', alignItems: "center" }}>
+                            <View
                                 style={{
                                     paddingHorizontal: RFPercentage(1),
                                     backgroundColor:
@@ -146,7 +155,7 @@ const Cart = () => {
                                     }}>
                                     +
                                 </Text>
-                            </TouchableOpacity>
+                            </View>
 
                             <Text
                                 style={{
@@ -158,7 +167,7 @@ const Cart = () => {
                                 }}>
                                 Add items
                             </Text>
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     <FlatList
@@ -385,7 +394,7 @@ const Cart = () => {
                         }}>${TotalPrice.toFixed(2)}</Text>
                     </View>
 
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         onPress={() => { }}
                         style={{
                             backgroundColor: COLORS.color_addtocartButtom,
@@ -401,6 +410,20 @@ const Cart = () => {
                             paddingVertical: RFPercentage(2.5)
 
                         }} >Checkout</Text>
+                    </TouchableOpacity> */}
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("CheckoutPage")}
+                        style={{
+                            marginVertical: RFPercentage(1.8),
+                            backgroundColor: COLORS.plusbottonColor, width: w * 0.85,
+                            alignSelf: "center", alignItems: "center",
+                            borderRadius: RFPercentage(1.5)
+                        }}>
+                        <Text style={{
+                            color: COLORS.white,
+                            fontSize: RFPercentage(2.5), fontFamily: FONT.Quicksand_Bold,
+                            justifyContent: "center", padding: RFPercentage(1.8), textAlign: "center"
+                        }}>Continue</Text>
                     </TouchableOpacity>
 
                 </View>

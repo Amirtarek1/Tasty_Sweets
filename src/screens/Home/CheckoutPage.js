@@ -20,9 +20,15 @@ import DeleteICon from '../../assets/Icons/Delete2.svg';
 import FreeDelivery from '../../assets/Icons/FreeDelivery.svg';
 import DownArrow from '../../assets/Icons/DownArrow.svg';
 import UpArrow from '../../assets/Icons/UpArrow.svg';
+import { useNavigation } from '@react-navigation/native';
 
 
 const CheckoutPage = () => {
+  const h = Dimensions.get('screen').height;
+  const w = Dimensions.get('screen').width;
+  const navigation = useNavigation();
+
+
   useEffect(() => {
     getsavenote();
   }, []);
@@ -45,8 +51,7 @@ const CheckoutPage = () => {
     ),
   );
 
-  const h = Dimensions.get('screen').height;
-  const w = Dimensions.get('screen').width;
+ 
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [addnote, setaddnotes] = useState('');
@@ -179,7 +184,7 @@ const CheckoutPage = () => {
                         flexDirection: 'row',
                         padding: RFPercentage(0.5),
                       }}>
-                      <Back_arrow onPress={() => { }} />
+                      <Back_arrow onPress={() => navigation.navigate("AnimTab2")} />
                       <Text
                         style={{
                           textAlign: 'center',
@@ -300,7 +305,7 @@ const CheckoutPage = () => {
                       </Text>
 
                       <View style={{ flexDirection: 'row', alignItems: "center" }}>
-                        <TouchableOpacity
+                        <TouchableOpacity onPress={() => navigation.navigate("AnimTab2")}
                           style={{
                             paddingHorizontal: RFPercentage(1),
                             backgroundColor:
@@ -634,7 +639,7 @@ const CheckoutPage = () => {
             </View>
 
             <TouchableOpacity
-              onPress={() => { }}
+              onPress={() => navigation.navigate("PayedPage")}
               style={{
                 marginVertical: RFPercentage(1.8),
                 backgroundColor: COLORS.plusbottonColor, width: w * 0.85,
@@ -642,6 +647,7 @@ const CheckoutPage = () => {
                 borderRadius: RFPercentage(1.5)
               }}>
               <Text style={{
+                color:COLORS.white,
                 fontSize: RFPercentage(2.5), fontFamily: FONT.Quicksand_Bold,
                 justifyContent: "center", padding: RFPercentage(1.8), textAlign: "center"
               }}>Continue</Text>

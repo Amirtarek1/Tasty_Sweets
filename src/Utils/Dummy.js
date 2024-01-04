@@ -1,3 +1,4 @@
+import { Image } from "react-native-animatable"
 import { images } from "../constants"
 
 const Top_Flavours = [
@@ -9,14 +10,14 @@ const Top_Flavours = [
         delivery_type: "Free Delivery"
     },
     {
-        id:2,
+        id: 2,
         name: "Vanilla Flavour",
         image: images.Flavour2,
         price: 20.5,
         delivery_type: "Free Delivery"
     },
     {
-        id:3,
+        id: 3,
         name: "Mango Flavour",
         image: images.Flavour8,
         price: 10.3,
@@ -33,41 +34,84 @@ const Top_Flavours = [
 
 
 
-const Popular_Flavour = [
+const Flavour = [
     {
-        id: 1,
+        product_id: 1,
         name: "Strawberry Flavour",
         image: images.ice4,
         price: 18.20,
-        delivery_type: "Free Delivery"
+        delivery_type: "Free Delivery",
+        info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+        product_count: 0,
+        product_price_without_sale: 22.22,
+        product_price_with_sale: 18.22,
+        price_delivery: 0
     },
     {
-        id: 2,
+        product_id: 2,
         name: "Vanilla Flavour",
         image: images.ice3,
         price: 20.5,
-        delivery_type: "Free Delivery"
+        delivery_type: "Free Delivery",
+        info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+        product_count: 0,
+        product_price_without_sale: 22.22,
+        product_price_with_sale: 18.22,
+        price_delivery: 0
+
     },
     {
-        id: 3,
+        product_id: 3,
         name: "Mango Flavour",
         image: images.ice3,
         price: 10.3,
-        delivery_type: "Free Delivery"
+        delivery_type: "Free Delivery",
+        info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+        product_count: 0,
+        product_price_without_sale: 22.22,
+        product_price_with_sale: 18.22,
+        price_delivery: 0
+
     },
     {
-        id: 4,
+        product_id: 4,
+        name: "Pistachio Flavour",
+        image: images.Flavour8,
+        price: 4,
+        delivery_type: "Free Delivery",
+        info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+        product_count: 0,
+        product_price_without_sale: 22.22,
+        product_price_with_sale: 18.22,
+        price_delivery: 0
+
+    },
+    {
+        product_id: 5,
         name: "Pistachio Flavour",
         image: images.ice2,
         price: 4,
-        delivery_type: "Free Delivery"
+        delivery_type: "Free Delivery",
+        info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+        product_count: 0,
+        product_price_without_sale: 22.22,
+        product_price_with_sale: 18.22,
+        price_delivery: 0
+
     },
     {
-        id: 5,
+        product_id: 6,
         name: "Pistachio Flavour",
-        image: images.ice2,
-        price: 4,
-        delivery_type: "Free Delivery"
+        image: images.ice4,
+        price: 34,
+        delivery_type: "Free Delivery",
+        info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+        product_count: 0,
+        product_price_without_sale: 22.22,
+        product_price_with_sale: 18.22,
+        price_delivery: 0
+
+
     }
 ]
 
@@ -81,7 +125,7 @@ const cart_products = [
         product_price_with_sale: 18.22,
         product_count: 0,
         product_delivery_status: "Free Delivery",
-        price_delivery : 0
+        price_delivery: 0
     }
     ,
     {
@@ -92,7 +136,7 @@ const cart_products = [
         product_price_with_sale: 10,
         product_count: 0,
         product_delivery_status: "Free Delivery",
-        price_delivery : 0
+        price_delivery: 0
 
     }
     , {
@@ -103,7 +147,7 @@ const cart_products = [
         product_price_with_sale: 14,
         product_count: 0,
         product_delivery_status: "Free Delivery",
-        price_delivery : 0
+        price_delivery: 0
 
     }
     , {
@@ -114,7 +158,7 @@ const cart_products = [
         product_price_with_sale: 25,
         product_count: 0,
         product_delivery_status: "Free Delivery",
-        price_delivery : 0
+        price_delivery: 0
 
     }
     // , {
@@ -166,8 +210,561 @@ const cart_products = [
 
 
 ]
+
+
+
+const categories = [
+    {
+        category_id: 1,
+        category_name: "CheeseCake",
+        category_image: images.cheesecake,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.cheesecake4,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.cheesecake,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango cheesecake Flavour",
+                image: images.cheesecake2,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 4,
+                name: "Pistachio cheesecake Flavour",
+                image: images.cheesecake3,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            }
+        ]
+
+    },
+    {
+        category_id: 2,
+        category_name: "Tiramisu",
+        category_image: images.trim,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.trim1,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.trim2,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango cheesecake Flavour",
+                image: images.trim3,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+        ]
+    },
+    {
+        category_id: 3,
+        category_name: "Donat",
+        category_image: images.donat,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.donat2,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.Donat1,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango cheesecake Flavour",
+                image: images.Donat3,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 4,
+                name: "Pistachio cheesecake Flavour",
+                image: images.Donat4,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 5,
+                name: "Pistachio cheesecake Flavour",
+                image: images.donat2,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            }
+        ]
+    }, {
+        category_id: 4,
+        category_name: "pancake",
+        category_image: images.pancake2,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.pancake1,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.pancake2,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango cheesecake Flavour",
+                image: images.pancake3,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 4,
+                name: "Pistachio cheesecake Flavour",
+                image: images.pancake4,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 5,
+                name: "Pistachio cheesecake Flavour",
+                image: images.pancake,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            }
+        ]
+    },
+    {
+        category_id: 5,
+        category_name: "CupCake",
+        category_image: images.cupCake,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.cupCake1,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.cupCake2,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango cheesecake Flavour",
+                image: images.cupCake3,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 4,
+                name: "Pistachio cheesecake Flavour",
+                image: images.cupCake4,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 5,
+                name: "Pistachio cheesecake Flavour",
+                image: images.cupCake1,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 6,
+                name: "Pistachio cheesecake Flavour",
+                image: images.cupCake3,
+                price: 34,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+
+            }
+        ]
+    },
+    {
+        category_id: 6,
+        category_name: "Ice cream",
+        category_image: images.Flavour4,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.pancake,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.ice3,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango cheesecake Flavour",
+                image: images.ice3,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 4,
+                name: "Pistachio cheesecake Flavour",
+                image: images.Flavour8,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 5,
+                name: "Pistachio cheesecake Flavour",
+                image: images.ice2,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 6,
+                name: "Pistachio cheesecake Flavour",
+                image: images.ice4,
+                price: 34,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+
+            }
+        ]
+    },
+    {
+        category_id: 6,
+        category_name: "Waffle",
+        category_image: images.waffle1,
+        Flavour: [
+            {
+                product_id: 1,
+                name: "Strawberry cheesecake Flavour",
+                image: images.waffle2,
+                price: 18.20,
+                delivery_type: "Free Delivery",
+                info: "Strawberry ice cream is a classic dessert to serve withCandy and Extra Topping .Strawberry ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+            },
+            {
+                product_id: 2,
+                name: "Vanilla cheesecake Flavour",
+                image: images.waffle3,
+                price: 20.5,
+                delivery_type: "Free Delivery",
+                info: "Vanilla ice cream is a classic dessert to serve withCandy and Extra Topping .Vanilla ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 3,
+                name: "Mango sdasdasd Flavour",
+                image: images.waffle4,
+                price: 10.3,
+                delivery_type: "Free Delivery",
+                info: "Mango ice cream is a classic dessert to serve withCandy and Extra Topping .Mango ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            },
+            {
+                product_id: 4,
+                name: "Pistachio cheesecake Flavour",
+                image: images.waffle1,
+                price: 4,
+                delivery_type: "Free Delivery",
+                info: "Pistachio ice cream is a classic dessert to serve withCandy and Extra Topping .Pistachio ice cream is a classic treat that everyone loves",
+                product_count: 0,
+                product_price_without_sale: 22.22,
+                product_price_with_sale: 18.22,
+                price_delivery: 0
+
+            }
+        ]
+    },
+
+
+
+]
+
+
+const data = [
+    {
+        title: 'Order Placed',
+        body: "We Have Recived Your Order"
+    },
+    {
+        title: 'Confirmed',
+        body: "Your Order Has Been Confirmed"
+    },
+    {
+        title: 'Order Shipped',
+        body: "22 Mar 2024"
+    },
+    {
+        title: 'Out For Delivery',
+        body: "Soon"
+    },
+    {
+        title: 'Deliverd',
+        body: "Have a Nice Order"
+    }
+]
+
+
+const Profile_Buttons = [
+    {
+        id: 1,
+        name: "Your orders",
+        // nav:
+    },
+    {
+        id: 2,
+        name: "Offers",
+        // nav:
+    },
+    {
+        id: 3,
+        name: "Notifications",
+        // nav:
+    },
+    {
+        id: 4,
+        name: "Orders pay",
+        // nav:
+    },
+    {
+        id: 5,
+        name: "Refer a friend",
+        // nav:
+    },
+    {
+        id: 6,
+        name: "Vouchers",
+        // nav:
+    },
+    {
+        id: 7,
+        name: "Get help",
+        // nav:
+    },
+    {
+        id: 8,
+        name: "About",
+        // nav:
+    },
+]
+
 export {
     Top_Flavours,
-    Popular_Flavour,
-    cart_products
+    cart_products,
+    categories,
+    Flavour,
+    data,
+    Profile_Buttons
 }
