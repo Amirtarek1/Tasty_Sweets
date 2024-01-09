@@ -6,6 +6,7 @@ const Splash_1 = require("../assets/lotties/Splash_2.json")
 const recyclingcenter = require("../assets/lotties/recyclingcenter.json")
 const bottlepowerrecycling = require("../assets/lotties/bottlepowerrecycling.json")
 const Confirmation = require("../assets/lotties/CONFIRMATION.json")
+const ReferaFriend = require("../assets/lotties/ReferaFriend.json")
 
 
 
@@ -17,5 +18,6 @@ Splash_1,
 bottlepowerrecycling,
 recyclingcenter,
 Confirmation,
+ReferaFriend,
 
 }

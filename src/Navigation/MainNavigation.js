@@ -11,6 +11,7 @@ import ProductDetails from "../screens/Home/ProductDetails";
 import Flavours from "../screens/Home/Flavours";
 import TrackingPage from "../screens/Home/TrackingPage";
 import ProfileDetails from "../screens/Profile/ProfileDetails";
+import Refer_Friend from "../screens/Profile/Refer_Friend";
 
 
 const RootStack = createStackNavigator();
@@ -94,6 +95,12 @@ const MainNaviagtion = () => {
                 <RootStack.Screen
                     name="ProfileDetails"
                     component={ProfileDetails}
+                    options={{ headerShown: false }}
+                />
+
+                <RootStack.Screen
+                    name="Refer_Friend"
+                    component={Refer_Friend}
                     options={{ headerShown: false }}
                 />
             </RootStack.Navigator>

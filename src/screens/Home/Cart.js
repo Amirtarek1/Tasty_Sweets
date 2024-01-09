@@ -132,7 +132,6 @@ const Cart = () => {
                             }}>
                             My Cart
                         </Text>
-                        {/* </View> */}
                         
 
                         <TouchableOpacity 

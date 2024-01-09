@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, Dimensions, Image, Text, FlatList, TouchableOpacity, Alert } from 'react-native';
+import { View, Dimensions, Image, Text, FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { COLORS, FONT, images } from '../../constants';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Profile_Buttons } from '../../Utils/Dummy';
 import { hp, wp } from '../../constants/themes';
 import Offers from "../../../src/assets/Icons/Offers.svg"
-
 import Friends from "../../../src/assets/Icons/friends.svg"
 import Wallet from "../../../src/assets/Icons/Wallet.svg"
 import Shopping from "../../../src/assets/Icons/Shopping.svg"

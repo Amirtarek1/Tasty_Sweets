@@ -11,7 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 const w = Dimensions.get("screen").width
 const Flavours = ({ route }) => {
   const navigation = useNavigation();
-  const { alldata, flavor, categoryName } = route.params;
+  const { alldata, flavor, categoryName } = route.params ;
   // console.log( alldata ,"-====>", flavor ,"-====>" ,categoryName)
   return (
     <SafeAreaProvider>

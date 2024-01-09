@@ -51,7 +51,7 @@ const CheckoutPage = () => {
     ),
   );
 
- 
+
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [addnote, setaddnotes] = useState('');
@@ -163,7 +163,26 @@ const CheckoutPage = () => {
   return (
     <>
       <SafeAreaProvider>
-        <View style={{ flex: 1, backgroundColor: COLORS.white }}>
+        <View style={{ flex: 1, backgroundColor: COLORS.white,  paddingHorizontal: RFPercentage(1.5),
+                      paddingVertical: RFPercentage(1) }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              padding: RFPercentage(0.5),
+            }}>
+            <Back_arrow onPress={() => navigation.navigate("AnimTab2")} />
+            <Text
+              style={{
+                textAlign: 'center',
+                flex: 0.9,
+                marginVertical: RFPercentage(1),
+                fontSize: RFPercentage(3.5),
+                fontFamily: FONT.Quicksand_Bold,
+                color: COLORS.Top_Flavour_Name,
+              }}>
+              Checkout
+            </Text>
+          </View>
           <FlatList
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
@@ -172,39 +191,20 @@ const CheckoutPage = () => {
             renderItem={({ item, index }) => {
               if (item.type === 'header') {
                 return (
-                  <View
-                    style={{
-                      backgroundColor: COLORS.white,
-                      flex: 1,
-                      paddingHorizontal: RFPercentage(1.5),
-                      paddingVertical: RFPercentage(1)
-                    }}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        padding: RFPercentage(0.5),
-                      }}>
-                      <Back_arrow onPress={() => navigation.navigate("AnimTab2")} />
-                      <Text
-                        style={{
-                          textAlign: 'center',
-                          flex: 0.9,
-                          marginVertical: RFPercentage(1),
-                          fontSize: RFPercentage(3.5),
-                          fontFamily: FONT.Quicksand_Bold,
-                          color: COLORS.Top_Flavour_Name,
-                        }}>
-                        Checkout
-                      </Text>
-                    </View>
-
+                  // <View
+                  //   style={{
+                  //     backgroundColor: COLORS.white_gray,
+                  //     flex: 1,
+                  //     // paddingHorizontal: RFPercentage(1.5),
+                  //     // paddingVertical: RFPercentage(1)
+                  //   }}>
+<>
                     <View
                       style={{
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                         marginTop: RFPercentage(2),
                         padding: RFPercentage(0.5),
-                        // marginVertical: RFPercentage(1),
                         alignItems: 'center',
                       }}>
                       <View>
@@ -336,7 +336,8 @@ const CheckoutPage = () => {
                         </Text>
                       </View>
                     </View>
-                  </View>
+                  {/* // </View> */}
+                  </>
                 );
               } else if (item.type === 'footer') {
                 return (
@@ -647,7 +648,7 @@ const CheckoutPage = () => {
                 borderRadius: RFPercentage(1.5)
               }}>
               <Text style={{
-                color:COLORS.white,
+                color: COLORS.white,
                 fontSize: RFPercentage(2.5), fontFamily: FONT.Quicksand_Bold,
                 justifyContent: "center", padding: RFPercentage(1.8), textAlign: "center"
               }}>Continue</Text>
