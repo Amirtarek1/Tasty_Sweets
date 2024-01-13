@@ -12,6 +12,10 @@ import Flavours from "../screens/Home/Flavours";
 import TrackingPage from "../screens/Home/TrackingPage";
 import ProfileDetails from "../screens/Profile/ProfileDetails";
 import Refer_Friend from "../screens/Profile/Refer_Friend";
+import OrderPay from "../screens/Profile/OrderPay";
+import GetHelp from "../screens/Profile/GetHelp";
+import AboutPage from "../screens/Profile/AboutPage";
+import NotificationsPage from "../screens/Profile/NotificationsPage";
 
 
 const RootStack = createStackNavigator();
@@ -101,6 +105,27 @@ const MainNaviagtion = () => {
                 <RootStack.Screen
                     name="Refer_Friend"
                     component={Refer_Friend}
+                    options={{ headerShown: false }}
+                />
+                <RootStack.Screen
+                    name="OrderPay"
+                    component={OrderPay}
+                    options={{ headerShown: false }}
+                />
+                <RootStack.Screen
+                    name="GetHelp"
+                    component={GetHelp}
+                    options={{ headerShown: false }}
+                />
+                <RootStack.Screen
+                    name="AboutPage"
+                    component={AboutPage}
+                    options={{ headerShown: false }}
+                />
+
+                <RootStack.Screen
+                    name="NotificationsPage"
+                    component={NotificationsPage}
                     options={{ headerShown: false }}
                 />
             </RootStack.Navigator>

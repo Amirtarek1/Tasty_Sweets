@@ -721,43 +721,82 @@ const Profile_Buttons = [
     {
         id: 1,
         name: "Your orders",
-        // nav:
+        // nav:"CheckoutPage"
     },
     {
         id: 2,
         name: "Offers",
-        // nav:
+        // nav:"Flavours"
     },
     {
         id: 3,
         name: "Notifications",
-        // nav:
+        nav:"NotificationsPage"
     },
     {
         id: 4,
         name: "Orders pay",
-        // nav:
+        nav:"OrderPay"
     },
     {
         id: 5,
         name: "Refer a friend",
-        // nav:
+        nav:"Refer_Friend"
     },
     {
         id: 6,
         name: "Vouchers",
-        // nav:
+        // nav:"AboutPage"
     },
     {
         id: 7,
         name: "Get help",
-        // nav:
+        nav:"GetHelp"
     },
     {
         id: 8,
         name: "About",
-        // nav:
+        nav:"AboutPage"
     },
+]
+
+const RefundData =[
+    {
+        Date:"Septamber 10,2023",
+        Money:36.50
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:36.50
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:36.50
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:36.50
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:4
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:1
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:4
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:3
+    },
+    {
+        Date:"Septamber 10,2023",
+        Money:2
+    }
 ]
 
 export {
@@ -766,5 +805,6 @@ export {
     categories,
     Flavour,
     data,
-    Profile_Buttons
+    Profile_Buttons,
+    RefundData
 }

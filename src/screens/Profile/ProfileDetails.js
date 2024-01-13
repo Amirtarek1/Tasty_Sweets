@@ -19,13 +19,18 @@ const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
 
-const CartIcon = require('../../../src/assets/Icons/cart.svg').default;
-
 const ProfileDetails = () => {
     const navigation = useNavigation();
 
 
-    const [buttons, setbuttons] = useState(Profile_Buttons)
+    const [buttons] = useState(Profile_Buttons)
+
+
+
+    const handlePress = (item) => {
+            navigation.navigate(item.nav);
+    };
+
 
     return (
         <SafeAreaProvider>
@@ -67,27 +72,27 @@ const ProfileDetails = () => {
                         <View style={{
                             backgroundColor: COLORS.white,
                         }}>
-                            <TouchableOpacity onPress={()=>alert(item.name)} style={{
+                            <TouchableOpacity onPress={()=>handlePress(item)} style={{
                                 paddingVertical: RFPercentage(1.5),
                                 padding: RFPercentage(2),
-                                flexDirection: "row"
+                                flexDirection: "row",
                             }}>
                                 
-                                {item.name === 'Your orders' && <Shopping height={hp(5)} width={wp(8)} />}
-                                {item.name === 'Offers' && <Offers height={hp(7)} width={wp(9)}  />}
+                                {item.name === 'Your orders' && <Shopping height={hp(6)} width={wp(8)} />}
+                                {item.name === 'Offers' && <Offers height={hp(6)} width={wp(8)}  />}
 
-                                {item.name === 'Notifications' && <BellNotification height={hp(5)} width={wp(8)} />}
-                                {item.name === 'Orders pay' && <Wallet height={hp(5)} width={wp(8)} />}
+                                {item.name === 'Notifications' && <BellNotification height={hp(6)} width={wp(8)} />}
+                                {item.name === 'Orders pay' && <Wallet height={hp(6)} width={wp(8)} />}
 
-                                {item.name === 'Refer a friend' && <Friends height={hp(5)} width={wp(8)} />}
-                                {item.name === 'Vouchers' && <Voucher height={hp(5)} width={wp(8)} />}
+                                {item.name === 'Refer a friend' && <Friends height={hp(6)} width={wp(8)} />}
+                                {item.name === 'Vouchers' && <Voucher height={hp(6)} width={wp(8)} />}
 
-                                {item.name === 'Get help' && <Help height={hp(5)} width={wp(8)} />}
-                                {item.name === 'About' && <About height={hp(5)} width={wp(8)} />}
+                                {item.name === 'Get help' && <Help height={hp(6)} width={wp(8)} />}
+                                {item.name === 'About' && <About height={hp(6)} width={wp(8)} />}
 
                                 
                                 <Text style={{
-                                    marginLeft: RFPercentage(1),
+                                    marginLeft: RFPercentage(1),color:COLORS.TextColorName,
                                     justifyContent: "center", alignSelf: "center",
                                     fontFamily: FONT.Quicksand_Bold, fontSize: RFPercentage(2.5)
                                 }}>{item.name}</Text>

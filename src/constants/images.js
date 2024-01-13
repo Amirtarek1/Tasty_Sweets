@@ -4,6 +4,7 @@ const another = require("../assets/Images/another.png")
 const Nolocation = require("../assets/Images/NOlocation.png")
 const USER_PROFILE = require("../assets/Images/USER_PROFILE.png")
 const TryMain = require("../assets/Images/TryMain.png")
+
 const ice1 = require("../assets/Images/ice1.png")
 const ice2 = require("../assets/Images/ice2.png")
 const ice3 = require("../assets/Images/ice3.png")
@@ -17,7 +18,6 @@ const Flavour6 = require("../assets/Images/Flavour6.jpg")
 const Flavour7 = require("../assets/Images/Flavour7.jpg")
 const Flavour8 = require("../assets/Images/Flavour8.jpg")
 const Flavour9 = require("../assets/Images/Flavour9.jpg")
-
 
 // pancakes 
 const pancake = require("../assets/Images/pancake.jpg")

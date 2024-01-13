@@ -1,5 +1,4 @@
 import { Dimensions } from 'react-native';
-import { RFPercentage } from 'react-native-responsive-fontsize';
 import {
     widthPercentageToDP as wp
     , heightPercentageToDP as hp
