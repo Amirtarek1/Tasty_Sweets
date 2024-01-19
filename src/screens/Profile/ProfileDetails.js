@@ -78,7 +78,7 @@ const ProfileDetails = () => {
                                 flexDirection: "row",
                             }}>
                                 
-                                {item.name === 'Your orders' && <Shopping height={hp(6)} width={wp(8)} />}
+                                {item.name === 'My orders' && <Shopping height={hp(6)} width={wp(8)} />}
                                 {item.name === 'Offers' && <Offers height={hp(6)} width={wp(8)}  />}
 
                                 {item.name === 'Notifications' && <BellNotification height={hp(6)} width={wp(8)} />}

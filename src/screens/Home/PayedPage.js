@@ -123,6 +123,7 @@ const PayedPage = () => {
                                 marginBottom: RFPercentage(4)
                             }}>
                             {currentStep !== 2 && (
+                                
                                 <Back_arrow onPress={handleBack} />
                             )}
 

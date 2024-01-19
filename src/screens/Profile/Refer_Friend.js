@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, TouchableOpacity, Dimensions, View, ScrollView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { COLORS, FONT } from '../../constants';
-import Back_arrow from '../../Components/Back_arrow';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import LottieView from 'lottie-react-native';
 import lotties from '../../constants/lotties';
@@ -12,6 +11,7 @@ import Offers from "../../../src/assets/Icons/Offers.svg"
 import Gift from "../../../src/assets/Icons/Gift.svg"
 import { useNavigation } from '@react-navigation/native';
 import Share from 'react-native-share';
+import Header from '../../Components/Header';
 
 
 const h = Dimensions.get('screen').height;
@@ -46,29 +46,7 @@ const Refer_Friend = () => {
             <SafeAreaProvider>
                 <View style={{ flex: 1, backgroundColor: COLORS.white }}>
 
-
-                    <View
-                        style={{
-                            flexDirection: 'row',
-                            paddingTop: RFPercentage(2),
-                            paddingHorizontal: RFPercentage(2),
-
-                        }}>
-
-                        <Back_arrow onPress={() => navigation.navigate("AnimTab2", { screen: "ProfileDetails" })} />
-
-                        <Text
-                            style={{
-                                textAlign: 'center',
-                                flex: 0.9,
-                                marginVertical: RFPercentage(1),
-                                fontSize: RFPercentage(3.5),
-                                fontFamily: FONT.Quicksand_Bold,
-                                color: COLORS.Top_Flavour_Name,
-                            }}>
-                            Refer a friend
-                        </Text>
-                    </View>
+                <Header HeaderName={"Refer a friend"} onPress={() => navigation.navigate("AnimTab2", { screen: "ProfileDetails" })} /> 
 
                     <ScrollView showsHorizontalScrollIndicator={false}
                         showsVerticalScrollIndicator={false}>

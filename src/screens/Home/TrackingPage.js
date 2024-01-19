@@ -3,11 +3,11 @@ import { Text, View, Dimensions, StyleSheet, ScrollView, FlatList } from 'react-
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { COLORS, FONT } from '../../constants';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import Back_arrow from '../../Components/Back_arrow';
 import StepIndicator from 'react-native-step-indicator';
 import { data } from '../../Utils/Dummy';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../../Components/Header';
 
 
 const h = Dimensions.get("screen").height
@@ -21,20 +21,18 @@ const TrackingPage = () => {
 
     return (
         <>
-            {/* onPress={() => navigation.navigate("AnimTab2", { screen: 'Home' })} */}
             <SafeAreaProvider>
 
                 <View style={{ backgroundColor: COLORS.white, flex: 1 }}>
                     <ScrollView showsHorizontalScrollIndicator={false}
                         showsVerticalScrollIndicator={false}>
-                        <View style={{ flexDirection: "row", marginLeft: RFPercentage(2) }}>
-                            <Back_arrow onPress={() => { }} />
-                            <Text style={{
-                                fontSize: RFPercentage(3.5), textAlign: "center",
-                                flex: 0.85, fontFamily: FONT.Quicksand_Bold,
-                                color: COLORS.black, padding: RFPercentage(2)
-                            }}>Track Order</Text>
-                        </View>
+                        
+                        
+                        
+                        <Header HeaderName={"Track Order"} onPress={() => navigation.navigate("AnimTab2", { screen: 'Home' })} />
+                       
+                       
+                       
                         <View style={{
                             alignItems: "center", justifyContent: "center",
                             backgroundColor: COLORS.TrybackgroundColorIce1, padding: RFPercentage(2)
@@ -100,7 +98,7 @@ const TrackingPage = () => {
                             alignItems: 'center',
                             justifyContent: 'center',
                         }}
-                        onPress={() => navigation.navigate('AnimTab2', { screen: 'Cart' })}
+                            onPress={() => navigation.navigate('AnimTab2', { screen: 'Cart' })}
                         >
                             <Text style={{
                                 textAlign: 'center',

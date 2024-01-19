@@ -3,9 +3,9 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { COLORS, FONT } from '../../constants';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import Back_arrow from '../../Components/Back_arrow';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../../Components/Header';
 
 
 const GetHelp = () => {
@@ -18,30 +18,8 @@ const GetHelp = () => {
             <View style={{ flex: 1, backgroundColor: COLORS.white }}>
                 <ScrollView style={styles.container}>
 
-                    <View
-                        style={{
-                            backgroundColor: COLORS.white,
-                            flexDirection: 'row',
-                            paddingTop: RFPercentage(2),
-                            paddingHorizontal: RFPercentage(2),
-                        }}>
 
-                        <Back_arrow
-                        onPress={() => navigation.navigate("AnimTab2", { screen: "ProfileDetails" })}
-                        />
-                        <Text
-                            style={{
-                                textAlign: 'center',
-                                flex: 0.9,
-                                marginVertical: RFPercentage(1),
-                                fontSize: RFPercentage(3.5),
-                                fontFamily: FONT.Quicksand_Bold,
-                                color: COLORS.Top_Flavour_Name,
-                            }}>
-                            Get help
-                        </Text>
-                    </View>
-
+                    <Header HeaderName={"Get help"} onPress={() => navigation.navigate("AnimTab2", { screen: "ProfileDetails" })} />
 
                     <View style={styles.contentContainer}>
                         <Text style={styles.heading}>Get Help</Text>
@@ -80,11 +58,11 @@ const GetHelp = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:COLORS.white,
+        backgroundColor: COLORS.white,
     },
     contentContainer: {
         padding: RFPercentage(3),
-        marginTop:RFPercentage(1)
+        marginTop: RFPercentage(1)
     },
     heading: {
         color: COLORS.plusbottonColor,

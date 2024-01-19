@@ -8,7 +8,6 @@ import { cart_products } from '../../Utils/Dummy';
 import DeleteICon from "../../assets/Icons/Delete2.svg"
 import { hp } from '../../constants/themes';
 import FreeDelivery from "../../assets/Icons/FreeDelivery.svg"
-import Back_arrow from '../../Components/Back_arrow';
 import { useNavigation } from '@react-navigation/native';
 
 const h = Dimensions.get("screen").height
@@ -121,8 +120,6 @@ const Cart = () => {
                             justifyContent: 'space-between',
                             marginVertical: RFPercentage(1),
                         }}>
-                        {/* <View style={{ backgroundColor:"#00d" }}> */}
-                            {/* <Back_arrow onPress={() => navigation.navigate("AnimTab2", { screen: 'Home' })} /> */}
                             <Text
                             style={{
                                 marginLeft:RFPercentage(1),

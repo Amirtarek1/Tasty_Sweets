@@ -16,6 +16,10 @@ import OrderPay from "../screens/Profile/OrderPay";
 import GetHelp from "../screens/Profile/GetHelp";
 import AboutPage from "../screens/Profile/AboutPage";
 import NotificationsPage from "../screens/Profile/NotificationsPage";
+import MyOrders from "../screens/Profile/MyOrders";
+import DitailsOrder from "../screens/Profile/DitailsOrder";
+import Offers from "../screens/Profile/Offers";
+import OffersDetails from "../screens/Profile/OffersDetails";
 
 
 const RootStack = createStackNavigator();
@@ -126,6 +130,31 @@ const MainNaviagtion = () => {
                 <RootStack.Screen
                     name="NotificationsPage"
                     component={NotificationsPage}
+                    options={{ headerShown: false }}
+                />
+
+                <RootStack.Screen
+                    name="MyOrders"
+                    component={MyOrders}
+                    options={{ headerShown: false }}
+                />
+
+
+                <RootStack.Screen
+                    name="DitailsOrder"
+                    component={DitailsOrder}
+                    options={{ headerShown: false }}
+                />
+
+                <RootStack.Screen
+                    name="Offers"
+                    component={Offers}
+                    options={{ headerShown: false }}
+                />
+
+                <RootStack.Screen
+                    name="OffersDetails"
+                    component={OffersDetails}
                     options={{ headerShown: false }}
                 />
             </RootStack.Navigator>

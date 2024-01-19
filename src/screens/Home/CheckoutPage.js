@@ -12,7 +12,6 @@ import {
   Image,
 } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import Back_arrow from '../../Components/Back_arrow';
 import { hp, wp } from '../../constants/themes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { cart_products } from '../../Utils/Dummy';
@@ -21,6 +20,7 @@ import FreeDelivery from '../../assets/Icons/FreeDelivery.svg';
 import DownArrow from '../../assets/Icons/DownArrow.svg';
 import UpArrow from '../../assets/Icons/UpArrow.svg';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../../Components/Header';
 
 
 const CheckoutPage = () => {
@@ -163,42 +163,27 @@ const CheckoutPage = () => {
   return (
     <>
       <SafeAreaProvider>
-        <View style={{ flex: 1, backgroundColor: COLORS.white,  paddingHorizontal: RFPercentage(1.5),
-                      paddingVertical: RFPercentage(1) }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              padding: RFPercentage(0.5),
-            }}>
-            <Back_arrow onPress={() => navigation.navigate("AnimTab2")} />
-            <Text
-              style={{
-                textAlign: 'center',
-                flex: 0.9,
-                marginVertical: RFPercentage(1),
-                fontSize: RFPercentage(3.5),
-                fontFamily: FONT.Quicksand_Bold,
-                color: COLORS.Top_Flavour_Name,
-              }}>
-              Checkout
-            </Text>
-          </View>
+        <View style={{
+          flex: 1,
+          backgroundColor: COLORS.white,
+          paddingVertical: RFPercentage(1)
+        }}>
+          <Header HeaderName={"Checkout"} onPress={() => navigation.navigate("AnimTab2")} />
+
+
+
           <FlatList
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
+            style={{        
+                paddingHorizontal: RFPercentage(1.5),
+            }}
             data={[{ type: 'header' }, { type: 'footer' }, ...products]}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => {
               if (item.type === 'header') {
                 return (
-                  // <View
-                  //   style={{
-                  //     backgroundColor: COLORS.white_gray,
-                  //     flex: 1,
-                  //     // paddingHorizontal: RFPercentage(1.5),
-                  //     // paddingVertical: RFPercentage(1)
-                  //   }}>
-<>
+                  <>
                     <View
                       style={{
                         flexDirection: 'row',
@@ -336,7 +321,7 @@ const CheckoutPage = () => {
                         </Text>
                       </View>
                     </View>
-                  {/* // </View> */}
+                    {/* // </View> */}
                   </>
                 );
               } else if (item.type === 'footer') {

@@ -147,8 +147,8 @@ const Login = () => {
 
                                     <View style={{ marginTop: RFPercentage(2) }}>
                                         <StartButton button_name={"Submit"} 
-                                        // Confirm_press={ToLogin}
-                                        Confirm_press={() => navigation.navigate("AnimTab2")} 
+                                        Confirm_press={ToLogin}
+                                        // Confirm_press={() => navigation.navigate("AnimTab2")} 
                                         />
                                          {/* Confirm_press={ToLogin} */}
                                         <Text style={{

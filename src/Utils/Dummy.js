@@ -720,28 +720,28 @@ const data = [
 const Profile_Buttons = [
     {
         id: 1,
-        name: "Your orders",
-        // nav:"CheckoutPage"
+        name: "My orders",
+        nav: "MyOrders"
     },
     {
         id: 2,
         name: "Offers",
-        // nav:"Flavours"
+        nav:"Offers"
     },
     {
         id: 3,
         name: "Notifications",
-        nav:"NotificationsPage"
+        nav: "NotificationsPage"
     },
     {
         id: 4,
         name: "Orders pay",
-        nav:"OrderPay"
+        nav: "OrderPay"
     },
     {
         id: 5,
         name: "Refer a friend",
-        nav:"Refer_Friend"
+        nav: "Refer_Friend"
     },
     {
         id: 6,
@@ -751,53 +751,146 @@ const Profile_Buttons = [
     {
         id: 7,
         name: "Get help",
-        nav:"GetHelp"
+        nav: "GetHelp"
     },
     {
         id: 8,
         name: "About",
-        nav:"AboutPage"
+        nav: "AboutPage"
     },
 ]
 
-const RefundData =[
+const RefundData = [
     {
-        Date:"Septamber 10,2023",
-        Money:36.50
+        Date: "Septamber 10,2023",
+        Money: 36.50
     },
     {
-        Date:"Septamber 10,2023",
-        Money:36.50
+        Date: "Septamber 10,2023",
+        Money: 36.50
     },
     {
-        Date:"Septamber 10,2023",
-        Money:36.50
+        Date: "Septamber 10,2023",
+        Money: 36.50
     },
     {
-        Date:"Septamber 10,2023",
-        Money:36.50
+        Date: "Septamber 10,2023",
+        Money: 36.50
     },
     {
-        Date:"Septamber 10,2023",
-        Money:4
+        Date: "Septamber 10,2023",
+        Money: 4
     },
     {
-        Date:"Septamber 10,2023",
-        Money:1
+        Date: "Septamber 10,2023",
+        Money: 1
     },
     {
-        Date:"Septamber 10,2023",
-        Money:4
+        Date: "Septamber 10,2023",
+        Money: 4
     },
     {
-        Date:"Septamber 10,2023",
-        Money:3
+        Date: "Septamber 10,2023",
+        Money: 3
     },
     {
-        Date:"Septamber 10,2023",
-        Money:2
+        Date: "Septamber 10,2023",
+        Money: 2
     }
 ]
+
+
+const allOrders = [
+    {
+        order_id: 1,
+        order_number: "#234",
+        order_price: "264",
+        order_content: [
+            {
+                order_item_id: 1,
+                order_item_name: "ice cream",
+                order_item_price: "234",
+                image: images.Flavour1,
+                Count: "12",
+            },
+            {
+                order_item_id: 2,
+                order_item_name: "Pancake",
+                order_item_price: "23",
+                image: images.pancake1,
+                Count: "51",
+
+            },
+            {
+                order_item_id: 3,
+                order_item_name: "Pancake",
+                order_item_price: "23",
+                image: images.pancake,
+                Count: "11",
+
+            },
+            {
+                order_item_id: 4,
+                order_item_name: "Pancake",
+                order_item_price: "23",
+                image: images.pancake3,
+                Count: "51",
+
+            },
+            {
+                order_item_id: 5,
+                order_item_name: "Pancake",
+                order_item_price: "23",
+                image: images.pancake2,
+                Count: "431",
+
+            }
+        ]
+    },
+    {
+        order_id: 2,
+        order_number: "#4323",
+        order_price: "23",
+        order_content: [
+            {
+                order_item_id: 1,
+                order_item_name: "Donat",
+                order_item_price: "14",
+                image: images.Donat2,
+                Count: "112",
+
+            },
+            {
+                order_item_id: 2,
+                order_item_name: "waffle",
+                order_item_price: "9",
+                image: images.waffle1,
+                Count: "12",
+
+            }
+        ]
+    }
+]
+
+const Vouchers = [
+    {
+        id: 1,
+        name: "Ice cream",
+        head: "Ice cream offers 40-50% - get 60 EGP when buy over 200 EGP",
+        Details: "This Discount valid on specific days jan 18th & 22nd from 9 PM to 12 PM",
+        image: images.Flavour1
+    },
+    {
+        id: 2,
+        name: "PanCake",
+        head: "PanCake offers 20-30% - get 40 EGP when buy over 200 EGP",
+        Details: "This Discount valid on specific days jan 18th & 22nd from 9 PM to 12 PM",
+        image: images.pancake3
+
+    }
+]
+
+
 
 export {
     Top_Flavours,
@@ -806,5 +899,7 @@ export {
     Flavour,
     data,
     Profile_Buttons,
-    RefundData
+    RefundData,
+    allOrders,
+    Vouchers
 }

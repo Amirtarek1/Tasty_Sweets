@@ -9,9 +9,7 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Dimensions } from "react-native"
 import { COLORS, FONT } from '../../constants';
 import Home_Page from '../Home/Home_Page';
-import TRY from '../Others/TRY';
 import Cart from '../Home/Cart';
-import StartScreen from '../Splash/StartScreen';
 import { hp } from '../../constants/themes';
 import ProfileDetails from '../Profile/ProfileDetails';
 

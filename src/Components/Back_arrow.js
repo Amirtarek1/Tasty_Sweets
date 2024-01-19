@@ -13,7 +13,6 @@ const Back_arrow = ({ onPress }) => {
     return (
         <>
 
-{/* styles.shadowProp, */}
 
             <TouchableOpacity style={[styles.shadowProp,  styles.button_touchableopacity]} onPress={onPress} >
                 
