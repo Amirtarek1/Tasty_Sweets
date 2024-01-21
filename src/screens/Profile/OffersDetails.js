@@ -39,7 +39,7 @@ const OffersDetails = ({ route }) => {
                                 fontFamily: FONT.Quicksand_SemiBold,
                                 justifyContent: "center",
                                 padding: RFPercentage(0.5),
-                                maxWidth:w*0.98,
+                                maxWidth: w * 0.98,
 
                             }}>Order Your sweets</Text>
                             <Text style={{
@@ -49,7 +49,7 @@ const OffersDetails = ({ route }) => {
                                 justifyContent: "center",
                                 padding: RFPercentage(0.5),
                                 paddingHorizontal: RFPercentage(4),
-                                maxWidth:w*0.98,
+                                maxWidth: w * 0.98,
 
                             }}>{OfferDetails.head}</Text>
                             <Text style={{
@@ -59,7 +59,7 @@ const OffersDetails = ({ route }) => {
                                 justifyContent: "center",
                                 paddingHorizontal: RFPercentage(4),
                                 paddingVertical: RFPercentage(0.5),
-                                maxWidth:w*0.98,
+                                maxWidth: w * 0.98,
 
 
                             }}>{OfferDetails.Details}</Text>
@@ -69,8 +69,9 @@ const OffersDetails = ({ route }) => {
                                 alignSelf: "center", alignItems: "center"
                             }}>
                                 <TouchableOpacity
-                                    onPress={() => navigation.navigate("AnimTab2", { screen: "Home_Page" })}
-                                    style={{
+                                    onPress={() => navigation.navigate("Home_Page", { FromVoucher: "show" })}
+
+                                  style={{
                                         marginVertical: RFPercentage(1.2),
                                         backgroundColor: COLORS.plusbottonColor,
                                         width: w * 0.85,

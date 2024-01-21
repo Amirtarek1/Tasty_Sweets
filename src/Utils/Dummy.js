@@ -123,7 +123,7 @@ const cart_products = [
         product_name: "Mango flavour",
         product_price_without_sale: 22.22,
         product_price_with_sale: 18.22,
-        product_count: 0,
+        product_count: 3,
         product_delivery_status: "Free Delivery",
         price_delivery: 0
     }
@@ -134,7 +134,7 @@ const cart_products = [
         product_name: "vanilla flavour with candy",
         product_price_without_sale: 30.21,
         product_price_with_sale: 10,
-        product_count: 0,
+        product_count: 4,
         product_delivery_status: "Free Delivery",
         price_delivery: 0
 
@@ -145,7 +145,7 @@ const cart_products = [
         product_name: "blueberry flavour",
         product_price_without_sale: 12,
         product_price_with_sale: 14,
-        product_count: 0,
+        product_count:5,
         product_delivery_status: "Free Delivery",
         price_delivery: 0
 
@@ -156,7 +156,7 @@ const cart_products = [
         product_name: "pistachio flavour and vanilla flavour",
         product_price_without_sale: 50,
         product_price_with_sale: 25,
-        product_count: 0,
+        product_count: 7,
         product_delivery_status: "Free Delivery",
         price_delivery: 0
 
@@ -746,7 +746,7 @@ const Profile_Buttons = [
     {
         id: 6,
         name: "Vouchers",
-        // nav:"AboutPage"
+        nav:"VouchersPage"
     },
     {
         id: 7,
@@ -890,7 +890,38 @@ const Vouchers = [
     }
 ]
 
-
+const VouchersCodes=[
+    {
+        head:"50 EGP on Supermarket",
+        expire:"Valid till january 23,2024",
+        status :"used"
+    },
+    {
+        head:"50 EGP on Supermarket",
+        expire:"Valid till january 23,2024",
+        status :"used"
+    },
+    {
+        head:"540 EGP on Supermarket",
+        expire:"Valid till january 23,2024",
+        status :"expired"
+    },
+    {
+        head:"10 EGP on Supermarket",
+        expire:"Valid till january 23,2024",
+        status :"expired"
+    },
+    {
+        head:"230 EGP on Supermarket",
+        expire:"Valid till january 23,2024",
+        status :"active"
+    },
+    {
+        head:"130 EGP on Supermarket",
+        expire:"Valid till january 23,2024",
+        status :"active"
+    }
+]
 
 export {
     Top_Flavours,
@@ -901,5 +932,6 @@ export {
     Profile_Buttons,
     RefundData,
     allOrders,
-    Vouchers
+    Vouchers,
+    VouchersCodes
 }

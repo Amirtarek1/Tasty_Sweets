@@ -9,6 +9,7 @@ import { hp, wp } from '../../constants/themes';
 import NEWRE from "../../../src/assets/Icons/NEWRE.svg";
 import { RefundData } from '../../Utils/Dummy';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../../Components/Header';
 
 
 
@@ -25,31 +26,9 @@ const OrderPay = () => {
                 <View style={{ flex: 1, backgroundColor: COLORS.white }}>
 
 
-                    <View
-                        style={{
-                            backgroundColor: COLORS.plusbottonColor,
-                            flexDirection: 'row',
-                            paddingTop: RFPercentage(2),
-                            paddingHorizontal: RFPercentage(2),
-                        }}>
-
-                        <Back_arrow 
+                  <Header HeaderName={"Order Pay"}
                         onPress={() => navigation.navigate("AnimTab2", { screen: "ProfileDetails" })}
-                        />
-                        <Text
-                            style={{
-                                textAlign: 'center',
-                                flex: 0.9,
-                                marginVertical: RFPercentage(1),
-                                fontSize: RFPercentage(3.5),
-                                fontFamily: FONT.Quicksand_Bold,
-                                color: COLORS.Top_Flavour_Name,
-                            }}>
-                            Order Pay
-                        </Text>
-                    </View>
-
-
+                    />
 
                     <View style={{
                         backgroundColor: COLORS.plusbottonColor,

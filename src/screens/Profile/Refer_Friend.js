@@ -12,6 +12,7 @@ import Gift from "../../../src/assets/Icons/Gift.svg"
 import { useNavigation } from '@react-navigation/native';
 import Share from 'react-native-share';
 import Header from '../../Components/Header';
+import Toast from 'react-native-toast-message';
 
 
 const h = Dimensions.get('screen').height;
@@ -23,21 +24,20 @@ const Refer_Friend = () => {
      const SHAre = async () => {
         try {
             const options = {
-                title: 'شارك البرنامج مع اصداقائك واربح نقط ',
+                title: 'Share to your friends',
                 url: 'https://reactnative.dev/',
             };
             await Share.open(options);
         } catch (error) {
-            alert("hi")
-            // Toast.show({
-            //     type: 'error',
-            //     position: 'bottom',
-            //     text1: "لم تتم المشاركة",
-            //     visibilityTime: 3000,
-            //     autoHide: true,
-            //     topOffset: 50,
-            //     bottomOffset: 150,
-            // });
+            Toast.show({
+                type: 'error',
+                position: 'bottom',
+                text1: "Share to your friends ",
+                visibilityTime: 3000,
+                autoHide: true,
+                topOffset: 50,
+                bottomOffset: 150,
+            });
         }
     };
 

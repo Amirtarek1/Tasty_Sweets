@@ -13,30 +13,31 @@ import Cart from "../../../src/assets/Icons/cart.svg"
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
 
-const Home_Page = () => {
+const Home_Page = ({ route }) => {
+
 
     const navigation = useNavigation();
     const [Top_FlavoursData, setTop_Flavours] = useState(Top_Flavours)
 
+    // const FromVoucher = route.params || null;
 
-
-
-    const [CategoriesData , setCategoriesData] = useState(categories);
+    const FromVoucher = route.params?.FromVoucher || null;
+    const [CategoriesData, setCategoriesData] = useState(categories);
 
     const [filteredData, setFilteredData] = useState(CategoriesData);
 
     const [searchQuery, setSearchQuery] = useState('');
-    
+
     const handleSearch = (text) => {
         setSearchQuery(text);
-    
+
         if (text === '') {
             setFilteredData(CategoriesData);
         } else {
             const filtered = CategoriesData.filter(item =>
                 item.category_name && item.category_name.toLowerCase().includes(text.toLowerCase())
             );
-    
+
             setFilteredData(filtered);
         }
     };
@@ -70,6 +71,30 @@ const Home_Page = () => {
                 }}
                 ListHeaderComponent={
                     <>
+
+                        {FromVoucher == "show" ?
+                            (
+                                <View style={{ backgroundColor: COLORS.TrybackgroundColorIce1 }}>
+
+                                    <View style={{
+                                        marginHorizontal: RFPercentage(2),
+                                        marginVertical: RFPercentage(1),
+                                    }}>
+                                        <Text style={{
+                                            fontSize: RFPercentage(2.5),
+                                            fontFamily: FONT.Quicksand_SemiBold,
+                                            color: COLORS.TextColorName
+                                        }}>Use the Voucher</Text>
+                                        <Text style={{
+                                            fontSize: RFPercentage(2),
+                                            fontFamily: FONT.Quicksand_Medium,
+                                            color: COLORS.TextColorName
+                                        }}>Order your sweets that you use its Voucher</Text>
+                                    </View>
+                                </View>
+                            ) : null}
+
+
                         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: RFPercentage(2), paddingVertical: RFPercentage(2) }}>
                             <View style={{ justifyContent: "center", marginLeft: RFPercentage(2.5) }}>
                                 <Text style={{ fontSize: RFPercentage(3.2), fontFamily: FONT.Quicksand_Bold, color: COLORS.TextColorName }}>Hi Amir</Text>
@@ -77,8 +102,8 @@ const Home_Page = () => {
                             </View>
 
                             <View style={{ marginRight: RFPercentage(2.5) }}>
-                                <Image source={images.USER_PROFILE} 
-                                style={{ borderRadius: RFPercentage(5), width: w * .18, height: w * .18 }} />
+                                <Image source={images.USER_PROFILE}
+                                    style={{ borderRadius: RFPercentage(5), width: w * .18, height: w * .18 }} />
                             </View>
                         </View>
 
@@ -122,8 +147,12 @@ const Home_Page = () => {
                             paddingHorizontal: RFPercentage(2),
                             flexDirection: "row", justifyContent: "space-between"
                         }}>
-                            <Text style={{ fontSize: RFPercentage(3), fontFamily: FONT.Quicksand_Bold, color: COLORS.TextColorName }}>Sweets</Text>
-                            <TouchableOpacity onPress={()=>navigation.navigate("Cart")} style={{
+                            <Text style={{
+                                fontSize: RFPercentage(3),
+                                fontFamily: FONT.Quicksand_Bold,
+                                color: COLORS.TextColorName
+                            }}>Sweets</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate("Cart")} style={{
                                 justifyContent: "center",
                                 alignItems: "center",
                                 alignContent: "center"
@@ -137,7 +166,8 @@ const Home_Page = () => {
                                 }} >
                                     <Text style={{ color: COLORS.white, fontSize: RFPercentage(2) }}
                                     >{number}</Text>
-                                </View> : null}
+                                </View> :
+                                    null}
 
 
                             </TouchableOpacity>

@@ -12,6 +12,7 @@ import Visa from "../../assets/Icons/Visa.svg"
 import Lottie from 'lottie-react-native';
 import lotties from '../../constants/lotties';
 import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
 
 
@@ -48,9 +49,27 @@ const PayedPage = () => {
 
     const onNextStep = () => {
         if (currentStep === 0 && (!fullname || !Address1 || !city || !state)) {
-            alert('Please fill in fields');
+            Toast.show({
+                type: 'error',
+                position: 'bottom',
+                text1: "Please fill in fields",
+                visibilityTime: 3000,
+                autoHide: true,
+                topOffset: 50,
+                bottomOffset: 100,
+        
+              });
         } else if (currentStep === 1 && (!NameonCard || !CardNumber || !ExpMonth || !ExpDate || !CVV)) {
-            alert('Please fill in all fields');
+            Toast.show({
+                type: 'error',
+                position: 'bottom',
+                text1: "Please fill in fields",
+                visibilityTime: 3000,
+                autoHide: true,
+                topOffset: 50,
+                bottomOffset: 100,
+        
+              });
         } else {
             setCurrentStep((prevStep) => prevStep + 1);
         }

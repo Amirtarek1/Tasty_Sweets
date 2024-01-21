@@ -1,7 +1,5 @@
-
-
 import React, { useState } from 'react';
-import { Alert, Dimensions, ImageBackground, KeyboardAvoidingView, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import {  Dimensions, ImageBackground, KeyboardAvoidingView, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { COLORS, FONT, images } from '../../constants';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import INPUTtext_password from '../../Components/INPUTtext_password';
@@ -9,6 +7,7 @@ import INputbutton from '../../Components/INputbutton';
 import StartButton from '../../Components/StartButton';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import Toast from "react-native-toast-message"
 
 
 const h = Dimensions.get("screen").height
@@ -85,7 +84,16 @@ const Login = () => {
         if (handleButtonPress()) {
             navigation.navigate("AnimTab2")
         } else {
-            alert("Pleace check Email and password")
+            Toast.show({
+                type: 'error',
+                position: 'bottom',
+                text1: "Pleace check Email and password",
+                visibilityTime: 3000,
+                autoHide: true,
+                topOffset: 50,
+                bottomOffset: 100,
+        
+              });
         }
     }
 

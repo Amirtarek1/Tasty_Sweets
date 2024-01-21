@@ -55,37 +55,20 @@ const Cart = () => {
     }
 
 
-    const increment = async (product_id) => {
-        const updatedProducts = products.map((product) => {
-            if (product.product_id === product_id) {
-                return { ...product, product_count: product.product_count + 1 };
-            }
-            return product;
-        });
-        setProducts(updatedProducts);
-        const totalCount = updatedProducts.reduce((sum, product) => sum + product.product_count, 0);
-        saveCountToStorage(totalCount);
-        setCount(totalCount);
-        setTotalPrice(prevTotalPrice => prevTotalPrice + updatedProducts.find(product => product.product_id === product_id).product_price_with_sale);
-
-    };
-
-
-    const decrement = async (product_id) => {
-        const updatedProducts = products.map((product) => {
-            if (product.product_id === product_id && product.product_count > 1) {
-                return { ...product, product_count: product.product_count - 1 };
-            }
-            return product;
-        });
-        setProducts(updatedProducts);
-        const totalCount = updatedProducts.reduce((sum, product) => sum + product.product_count, 0);
-        saveCountToStorage(totalCount);
-        setCount(totalCount);
-        setTotalPrice(prevTotalPrice => prevTotalPrice - updatedProducts.find(product => product.product_id === product_id).product_price_with_sale);
-    };
-
-
+  
+    // const decrement = async (product_id) => {
+    //     const updatedProducts = products.map((product) => {
+    //         if (product.product_id === product_id && product.product_count > 1) {
+    //             return { ...product, product_count: product.product_count - 1 };
+    //         }
+    //         return product;
+    //     });
+    //     setProducts(updatedProducts);
+    //     const totalCount = updatedProducts.reduce((sum, product) => sum - product.product_count, 0);
+    //     saveCountToStorage(totalCount);
+    //     setCount(totalCount);
+    //     setTotalPrice(prevTotalPrice => prevTotalPrice - updatedProducts.find(product => product.product_id === product_id).product_price_with_sale);
+    // };
 
     const deleteProduct = (product_id) => {
         const updatedProducts = products.filter((product) => product.product_id !== product_id);
@@ -98,6 +81,111 @@ const Cart = () => {
         const deletedProduct = products.find((product) => product.product_id === product_id);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - deletedProduct.product_price_with_sale * deletedProduct.product_count);
     };
+
+
+//     const decrement = async (product_id) => {
+//         const updatedProducts = products.map((product) => {
+//             if (product.product_id === product_id) {
+//                 const updatedCount = Math.max(product.product_count - 1, 0);
+//                 return { ...product, product_count: updatedCount };
+//             }
+//             return product;
+//         });
+    
+//         setProducts(updatedProducts);
+    
+//         const totalCount = updatedProducts.reduce((sum, product) => sum + product.product_count, 0);
+//         saveCountToStorage(totalCount);
+//         setCount(totalCount);
+    
+//         const deletedProduct = products.find((product) => product.product_id === product_id);
+//         const updatedTotalPrice = TotalPrice - (deletedProduct.product_price_with_sale || 0);
+    
+//         setTotalPrice(updatedTotalPrice < 0 ? 0 : updatedTotalPrice);
+  
+//   console.log(" totalCount ==> ",totalCount)
+//   console.log(" deletedProduct ==> ",deletedProduct)
+//   console.log(" updatedTotalPrice ==> ",updatedTotalPrice)
+
+//     };
+    
+
+// const decrement = async (product_id) => {
+//     const updatedProducts = products.map((product) => {
+//         if (product.product_id === product_id) {
+//             return { ...product, product_count: Math.max(product.product_count - 1, 0) };
+//         }
+//         return product;
+//     });
+
+//     // Filter out items with count greater than 0
+//     const nonZeroProducts = updatedProducts.filter((product) => product.product_count > 0);
+
+//     setProducts(nonZeroProducts);
+
+//     const totalCount = nonZeroProducts.reduce((sum, product) => sum + product.product_count, 0);
+//     saveCountToStorage(totalCount);
+//     setCount(totalCount);
+
+//     const deletedProduct = products.find((product) => product.product_id === product_id);
+//     const updatedTotalPrice = TotalPrice - (deletedProduct.product_price_with_sale || 0);
+
+//     setTotalPrice(updatedTotalPrice < 0 ? 0 : updatedTotalPrice);
+
+//     console.log(totalCount , "totalcount");
+//     console.log(updatedTotalPrice , "updatedTotalPrice");
+
+// };
+
+const roundToDecimal = (number, decimalPlaces) => {
+    const multiplier = 10 ** decimalPlaces;
+    return Math.round(number * multiplier) / multiplier;
+};
+
+const decrement = async (product_id) => {
+    const updatedProducts = products.map((product) => {
+        if (product.product_id === product_id) {
+            return { ...product, product_count: Math.max(product.product_count - 1, 0) };
+        }
+        return product;
+    });
+
+    // Filter out items with count greater than 0
+    const nonZeroProducts = updatedProducts.filter((product) => product.product_count > 0);
+
+    setProducts(nonZeroProducts);
+
+    const totalCount = nonZeroProducts.reduce((sum, product) => sum + product.product_count, 0);
+    saveCountToStorage(totalCount);
+    setCount(totalCount);
+
+    const deletedProduct = products.find((product) => product.product_id === product_id);
+    const updatedTotalPrice = roundToDecimal(TotalPrice - (deletedProduct.product_price_with_sale || 0), 2);
+
+    setTotalPrice(updatedTotalPrice < 0 ? 0 : updatedTotalPrice);
+    console.log(updatedTotalPrice)
+};
+
+const increment = async (product_id) => {
+    const updatedProducts = products.map((product) => {
+        if (product.product_id === product_id) {
+            return { ...product, product_count: product.product_count + 1 };
+        }
+        return product;
+    });
+
+    setProducts(updatedProducts);
+
+    const totalCount = roundToDecimal(updatedProducts.reduce((sum, product) => sum + product.product_count, 0), 2);
+    saveCountToStorage(totalCount);
+    setCount(totalCount);
+
+    const updatedTotalPrice = roundToDecimal(TotalPrice + (updatedProducts.find(product => product.product_id === product_id).product_price_with_sale || 0), 2);
+
+    setTotalPrice(updatedTotalPrice);
+    console.log(updatedTotalPrice)
+
+};
 
 
 
@@ -286,7 +374,6 @@ const Cart = () => {
                                                     style={{
                                                         fontSize: RFPercentage(1.9),
                                                         justifyContent: 'center',
-                                                        // backgroundColor:"#00d",
                                                         fontFamily: FONT.Quicksand_SemiBold,
                                                         color: COLORS.text_color,
                                                     }}>
@@ -304,6 +391,7 @@ const Cart = () => {
                                             borderRadius: RFPercentage(1),
                                         }}>
                                         <TouchableOpacity
+                                        // disabled={()=>}
                                             onPress={() => decrement(item.product_id)}
                                             style={{
                                                 justifyContent: 'center',
@@ -390,23 +478,7 @@ const Cart = () => {
                         }}>${TotalPrice.toFixed(2)}</Text>
                     </View>
 
-                    {/* <TouchableOpacity
-                        onPress={() => { }}
-                        style={{
-                            backgroundColor: COLORS.color_addtocartButtom,
-                            justifyContent: "center",
-                            borderRadius: RFPercentage(1.5),
-                            marginTop: RFPercentage(1.5),
-                            alignItems: "center"
-                        }}>
-                        <Text style={{
-                            fontSize: RFPercentage(2.8),
-                            fontFamily: FONT.Quicksand_Bold,
-                            color: COLORS.white,
-                            paddingVertical: RFPercentage(2.5)
-
-                        }} >Checkout</Text>
-                    </TouchableOpacity> */}
+                   
                     <TouchableOpacity
                         onPress={() => navigation.navigate("CheckoutPage")}
                         style={{

@@ -20,6 +20,7 @@ import MyOrders from "../screens/Profile/MyOrders";
 import DitailsOrder from "../screens/Profile/DitailsOrder";
 import Offers from "../screens/Profile/Offers";
 import OffersDetails from "../screens/Profile/OffersDetails";
+import VouchersPage from "../screens/Profile/VouchersPage";
 
 
 const RootStack = createStackNavigator();
@@ -157,6 +158,15 @@ const MainNaviagtion = () => {
                     component={OffersDetails}
                     options={{ headerShown: false }}
                 />
+
+                <RootStack.Screen
+                    name="VouchersPage"
+                    component={VouchersPage}
+                    options={{ headerShown: false }}
+                />
+
+
+
             </RootStack.Navigator>
         </>
     )

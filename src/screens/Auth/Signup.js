@@ -9,6 +9,7 @@ import INputbutton from '../../Components/INputbutton';
 import StartButton from '../../Components/StartButton';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
 const h = Dimensions.get("screen").height
 const w = Dimensions.get("screen").width
@@ -110,7 +111,16 @@ const Signup = () => {
         if (handleButtonPress()) {
             navigation.navigate("Home_Page")
         } else {
-            alert("Pleace check Email")
+            Toast.show({
+                type: 'error',
+                position: 'bottom',
+                text1: "Pleace check Email",
+                visibilityTime: 3000,
+                autoHide: true,
+                topOffset: 50,
+                bottomOffset: 100,
+        
+              });
         }
     }
 
